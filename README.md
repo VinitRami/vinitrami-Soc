@@ -1,10 +1,10 @@
 # Vinit Rami · Portfolio
 
-**Live site:** https://vinitrami-soc.github.io
+**Live site:** https://www.vinitrami.co.in
 
 Portfolio of Vinit Rami, cybersecurity analyst: VAPT, digital forensics, and
 SOC automation. It is one static page with no build step and no dependencies,
-served by GitHub Pages from `main`.
+deployed by Vercel from `main`.
 
 ## Projects featured on the site
 
@@ -24,7 +24,7 @@ served by GitHub Pages from `main`.
 │   ├── profile-400.webp/.jpg  # footer photo and contact avatar
 │   ├── Vinit_Rami_CV.pdf      # served by the "Download CV" buttons
 │   └── fonts/                 # self-hosted WOFF2 fonts (SIL OFL, see fonts/LICENSE.md)
-├── .nojekyll                  # tells GitHub Pages to serve files as-is
+├── .nojekyll                  # serve files as-is if the site is ever built by GitHub Pages
 └── LICENSE
 ```
 
