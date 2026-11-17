@@ -11,7 +11,8 @@ deployed by Vercel from `main`.
 | Project | What it is | Links |
 | --- | --- | --- |
 | **IntelPulse** | Threat-intelligence correlation and SOC triage workbench | [Live demo](https://vinitrami-soc.github.io/intelpulse/) · [Source](https://github.com/vinitrami-Soc/intelpulse) |
-| **PhishHawk** | Phishing triage engine for reported emails | [Source](https://github.com/vinitrami-Soc/phishhawk) |
+| **PhishHawk** | Phishing triage engine for reported emails, built from the MSc dissertation | [Live app](https://phishhawk.vinitrami.co.in) · [Source](https://github.com/vinitrami-Soc/phishhawk) |
+| **OwlTriage** | Offline log triage for Linux, web and Windows logs, with ATT&CK-mapped YAML rules | [Source](https://github.com/vinitrami-Soc/owltriage) |
 
 ## Structure
 
