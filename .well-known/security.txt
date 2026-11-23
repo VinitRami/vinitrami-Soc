@@ -1,0 +1,5 @@
+# Found a security issue on this site? Thank you. Please report it privately.
+Contact: https://www.vinitrami.co.in/#contact
+Expires: 2027-11-23T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.vinitrami.co.in/.well-known/security.txt
