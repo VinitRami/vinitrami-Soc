@@ -76,7 +76,12 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
     kick();
   });
   dock.addEventListener('pointerleave', function () { dItems.forEach(function (it) { it.t = 0; it.el.dataset.near = 'false'; }); kick(); });
-  function setOn(id) { dItems.forEach(function (it) { it.el.classList.toggle('on', it.el.dataset.sec === id); }); }
+  function setOn(id) {
+    dItems.forEach(function (it) {
+      var on = it.el.dataset.sec === id; it.el.classList.toggle('on', on);
+      if (on && dock.scrollWidth > dock.clientWidth) dock.scrollLeft = it.el.offsetLeft - (dock.clientWidth - it.el.offsetWidth) / 2;   /* phones: keep the active pill in view */
+    });
+  }
   dItems.forEach(function (it) { it.el.addEventListener('click', function () { setOn(it.el.dataset.sec); }); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(dockMeasure); else dockMeasure();
   window.addEventListener('resize', dockMeasure);
@@ -296,7 +301,7 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
       '<div class="row"><button class="btn pri choice" data-first id="nkOk" type="button">Fair enough</button></div>');
     $('#nkOk', mBody).addEventListener('click', function () { closeModal(); toast('Try India, Singapore or the UK instead.'); });
   }
-  document.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('[data-open]'); if (!b) return; e.preventDefault(); var o = b.dataset.open; o === 'cv' ? cvAsk() : o === 'nk' ? nkNope() : emailAsk(); });
+  document.addEventListener('click', function (e) { if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return; var b = e.target.closest && e.target.closest('[data-open]'); if (!b) return; e.preventDefault(); var o = b.dataset.open; o === 'cv' ? cvAsk() : o === 'nk' ? nkNope() : emailAsk(); });
   $('#copyId').addEventListener('click', function () { copy('ECC7846195302', 'Credential ID copied. Verify it with EC-Council.', $('.cert.top .id span')); });
 
   /* arsenal tabs */
@@ -375,7 +380,7 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
     },
     projects: function () {
       print('<span class="g">phishhawk</span>&nbsp;&nbsp;live phishing triage &nbsp;<a href="https://phishhawk.vinitrami.co.in" target="_blank" rel="noopener noreferrer">phishhawk.vinitrami.co.in</a>');
-      print('<span class="g">intelpulse</span> threat-intel verdicts <a href="https://github.com/vinitrami-Soc/intelpulse" target="_blank" rel="noopener noreferrer">github</a>');
+      print('<span class="g">intelpulse</span> threat-intel verdicts <a href="https://vinitrami-soc.github.io/intelpulse/" target="_blank" rel="noopener noreferrer">demo</a> · <a href="https://github.com/vinitrami-Soc/intelpulse" target="_blank" rel="noopener noreferrer">github</a>');
       print('<span class="g">owltriage</span>&nbsp;&nbsp;offline log triage &nbsp;&nbsp;&nbsp;<a href="https://github.com/vinitrami-Soc/owltriage" target="_blank" rel="noopener noreferrer">github</a>');
     },
     contact: function () {
@@ -652,7 +657,7 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
   var seq = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'], pos = 0;
   document.addEventListener('keydown', function (e) {
     var tag = (document.activeElement && document.activeElement.tagName) || '';
-    if ((e.key === '~' || e.key === '`') && tScrim.hidden && mScrim.hidden && tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); openTerm(); return; }
+    if ((e.key === '~' || e.key === '`') && !e.ctrlKey && !e.metaKey && !e.altKey && tScrim.hidden && mScrim.hidden && tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); openTerm(); return; }
     pos = (e.key === seq[pos]) ? pos + 1 : (e.key === seq[0] ? 1 : 0);
     if (pos === seq.length) { pos = 0; matrixBurst(); toast('Cheat code accepted: flag{k0n4m1_4n4lyst}'); }
   });
