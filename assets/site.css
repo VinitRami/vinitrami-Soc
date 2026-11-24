@@ -267,7 +267,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .viz.dim i { opacity: .12; transform: scale(.6); }
 
 /* Product Hunt badge in the intro tile */
-.ph-badge { position: absolute; z-index: 6; right: 22px; bottom: 22px; display: inline-flex; gap: 9px; align-items: center; padding: 8px 14px 8px 9px; border-radius: 999px;
+.intro-ctas { align-items: center; row-gap: 12px; }
+/* the badge sits in the button row: right-aligned when it fits, on its own line (still right) when it does not */
+.ph-badge { margin-left: auto; display: inline-flex; gap: 9px; align-items: center; padding: 8px 14px 8px 9px; border-radius: 999px;
   border: 1px solid rgb(218 85 47 / .45); background: rgb(218 85 47 / .1); color: var(--ph-ink); font-size: 13.5px; font-weight: 700; transition: transform .2s, background .2s; }
 .ph-badge:hover { transform: translateY(-2px); background: rgb(218 85 47 / .18); }
 .ph-badge svg { width: 22px; height: 22px; fill: #DA552F; }
@@ -524,7 +526,7 @@ footer .links svg { width: 17px; height: 17px; fill: currentColor; }
   .zoom { right: 8px; top: 8px; gap: 5px; }
   .zoom button { width: 30px; height: 30px; font-size: 14px; border-radius: 9px; }
   .zoom .zl { display: none; }
-  .ph-badge { position: static; margin-top: 16px; align-self: flex-start; }
+  .ph-badge { margin-left: 0; }
   .xp, .edu { grid-template-columns: 1fr; gap: 12px; }
   .edu > .xt { grid-column: auto; grid-row: auto; }
   .xt { padding: 20px; }

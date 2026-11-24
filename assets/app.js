@@ -568,7 +568,7 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
   Object.keys(PLACES).forEach(function (k) {
     var P = PLACES[k], p = xy(P.lat, P.lon), b = document.createElement('button');
     b.type = 'button'; b.className = 'pin'; b.dataset.place = k; b.style.left = (p[0] * 100) + '%'; b.style.top = (p[1] * 100) + '%';
-    b.setAttribute('aria-label', P.title + ': show what I did there'); b.innerHTML = '<span>' + P.label + '</span>';
+    b.setAttribute('aria-label', P.label + ', ' + P.title + ': show what I did there'); b.innerHTML = '<span>' + P.label + '</span>';
     box.appendChild(b);
   });
 
