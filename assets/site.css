@@ -190,6 +190,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .mini .screen .ou { color: #8FB9A3; }
 .mini .screen .cur { display: inline-block; width: 8px; height: 14px; vertical-align: -2px; background: var(--matrix); animation: blink 1s steps(1) infinite; }
 .term-tile .label { grid-column: 1; align-self: end; }
+.term-tile .inner::before { content: ""; position: absolute; inset: 40% 0 0; z-index: -1; pointer-events: none; border-radius: 0 0 var(--r) var(--r);
+  background: linear-gradient(to top, rgb(4 7 10 / .94) 0%, rgb(4 7 10 / .72) 55%, transparent); }
+.on-touch { display: none; }
+@media (hover: none) { .on-key { display: none; } .on-touch { display: inline; } .logo kbd { display: none; } }
 .term-tile .label b { display: block; font-size: 21px; color: #E9FFF4; letter-spacing: -.3px; }
 .term-tile .label span { font-size: 14px; color: #8FB9A3; }
 .term-tile .go { grid-column: 2; grid-row: 2; align-self: end; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; background: var(--matrix); color: #03140B; font-weight: 700; font-size: 14px; white-space: nowrap; transition: transform .2s; }
@@ -487,9 +491,25 @@ footer .links svg { width: 17px; height: 17px; fill: currentColor; }
 @media (max-width: 768px) {
   /* phones: the dock becomes a swipeable row of section links under the name */
   nav { flex-wrap: wrap; height: auto; padding-block: 12px 8px; row-gap: 8px; }
-  .dock { order: 3; width: 100%; height: auto; overflow-x: auto; scrollbar-width: none; padding: 4px; }
+  /* all five pills share the row evenly; under 360px it scrolls, with a fade that shows there is more */
+  .dock { order: 3; width: 100%; height: auto; justify-content: space-between; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 4px; scroll-padding-inline: 8px; }
   .dock::-webkit-scrollbar { display: none; }
-  .dock a { height: 32px; padding: 0 13px; font-size: 13.5px; }
+  .dock a { flex: 1 1 auto; min-width: 0; height: 34px; padding: 0 4px; font-size: clamp(11.5px, 3.3vw, 14px); }
+  .dock.more { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent); }
+  /* terminal tile */
+  .term-tile .inner { padding: 18px; gap: 12px; }
+  .term-tile .mini { width: 100%; }
+  .term-tile .mini .screen { height: 116px; font-size: 12px; line-height: 18px; }
+  .term-tile .label b { font-size: 20px; }
+  .term-tile .label span { font-size: 13.5px; line-height: 1.45; display: block; margin-top: 2px; }
+  /* terminal window: a sheet that fills the visible area (app.js tracks the keyboard) */
+  #termScrim { padding: max(10px, env(safe-area-inset-top, 0px)) 10px max(10px, env(safe-area-inset-bottom, 0px)); place-items: stretch; bottom: auto; height: 100vh; height: 100dvh; }
+  .term { width: 100%; height: 100%; border-radius: 14px; }
+  .term .bar { height: 44px; }
+  .term .bar button { width: 40px; height: 40px; font-size: 18px; }
+  .term .out { padding: 12px 14px 6px; font-size: 13px; line-height: 1.6; }
+  .term .in { padding: 10px 14px 12px; gap: 8px; font-size: 13px; }
+  .term .in input { font-size: 16px; }   /* 16px stops iOS zooming into the field */
   html { scroll-padding-top: 124px; }
   .grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .intro { grid-column: 1 / 3; grid-row: auto; min-height: 0; padding: 24px; }
@@ -598,3 +618,24 @@ a, button, input, label { touch-action: manipulation; -webkit-tap-highlight-colo
 .term .in:focus-within { box-shadow: inset 0 1px 0 rgb(52 227 154 / .45); background: rgb(52 227 154 / .05); }
 .term .in:focus-within label { color: var(--matrix); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* terminal output: columns that wrap inside themselves */
+.term .kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: 2ch; }
+.term .kv.help { grid-template-columns: 17ch minmax(0, 1fr); padding-left: 2ch; }
+.term .kv.tags { grid-template-columns: 12ch minmax(0, 1fr); }
+.term .kv.ports { grid-template-columns: 9ch 7ch minmax(0, 1fr); column-gap: 1ch; }
+.term .ls { display: inline-block; margin-right: 1.5ch; }
+/* quick commands: shown where there is no physical keyboard */
+.term .quick { display: none; flex: none; gap: 6px; padding: 8px 12px 2px; overflow-x: auto; scrollbar-width: none; border-top: 1px solid rgb(52 227 154 / .12); }
+.term .quick::-webkit-scrollbar { display: none; }
+.term .quick { padding-inline: 14px; scroll-padding-inline: 14px; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent); }
+.term .quick.end { -webkit-mask-image: none; mask-image: none; }
+.term .quick button:last-child { margin-right: 26px; }
+.term .quick button { flex: none; height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid rgb(52 227 154 / .35); color: var(--matrix); background: rgb(52 227 154 / .06); font-family: var(--mono); font-size: 12.5px; }
+.term .quick button:active { background: rgb(52 227 154 / .18); }
+@media (hover: none), (max-width: 768px) { .term .quick { display: flex; } }
+@media (max-width: 480px) {
+  .term .kv.help { grid-template-columns: 15ch minmax(0, 1fr); padding-left: 0; column-gap: 1.5ch; }
+  .term .kv.tags { grid-template-columns: 11.5ch minmax(0, 1fr); column-gap: 1.5ch; }
+}
+@media (max-width: 359px) { .cv-word { display: none; } .nav-act { gap: 8px; } }
