@@ -260,7 +260,7 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
   mScrim.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); trap(mScrim, e); });
 
   /* CV: an identity check first */
-  var cvLink = '<a class="btn pri" data-first href="' + CV + '" download="Vinit_Rami_CV.pdf"><i class="ph ph-download-simple"></i>Download CV</a>';
+  var cvLink = '<a class="btn pri" data-first href="' + CV + '" download="Vinit_Rami_CV.pdf"><i class="ph ph-download-simple" aria-hidden="true"></i>Download CV</a>';
   var cvReplies = {
     hr: ['ACCESS GRANTED', 'Identity verified. Welcome!', 'Please handle this CV with care. It\'s been through an entire MSc.'],
     hacker: ['RED TEAM DETECTED', 'Nice try, hacker.', 'Your disguise needs work. I\'ve reported you to the SOC, which is also me. Just kidding, nothing was logged. Here it is anyway.'],
@@ -285,8 +285,8 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
     $('#nah', mBody).addEventListener('click', function () { closeModal(); toast('No pressure. The inbox stays open.'); });
     $('#sure', mBody).addEventListener('click', function () {
       openModal('<div class="tag ok">VERDICT: CLEAN</div><h3 id="mTitle">Just kidding. Welcome!</h3><p>PhishHawk has already cleared you. Write to me here. I reply within a day.</p>' +
-        '<div class="addr"><code>' + EMAIL + '</code><button class="btn sec sm" id="copy" data-first type="button"><i class="ph ph-copy"></i>Copy</button></div>' +
-        '<div class="row"><a class="btn pri" href="mailto:' + EMAIL + '?subject=' + encodeURIComponent('Cybersecurity role') + '"><i class="ph ph-envelope-simple"></i>Open mail app</a></div>');
+        '<div class="addr"><code>' + EMAIL + '</code><button class="btn sec sm" id="copy" data-first type="button"><i class="ph ph-copy" aria-hidden="true"></i>Copy</button></div>' +
+        '<div class="row"><a class="btn pri" href="mailto:' + EMAIL + '?subject=' + encodeURIComponent('Cybersecurity role') + '"><i class="ph ph-envelope-simple" aria-hidden="true"></i>Open mail app</a></div>');
       $('#copy', mBody).addEventListener('click', function () { copy(EMAIL, 'Email address copied.', $('code', mBody)); });
     });
   }
@@ -384,7 +384,7 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
       print('github&nbsp;&nbsp;&nbsp;<a href="https://github.com/vinitrami-Soc" target="_blank" rel="noopener noreferrer">@vinitrami-Soc</a>');
       print('medium&nbsp;&nbsp;&nbsp;<a href="https://medium.com/@ramivinit" target="_blank" rel="noopener noreferrer">@ramivinit</a>');
     },
-    cv: function () { print('<span class="a">Access request detected.</span> Opening the security check...'); setTimeout(function () { closeTerm(); cvAsk(); }, 600); },
+    cv: function () { print('<span class="a">Access request detected.</span> Opening the security check…'); setTimeout(function () { closeTerm(); cvAsk(); }, 600); },
     nmap: function () {
       ['<span class="d">Starting Nmap 7.95 against vinitrami.co.in</span>', 'PORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATE&nbsp;&nbsp;SERVICE',
        '22/tcp&nbsp;&nbsp;&nbsp;<span class="r">closed</span> ssh <span class="d">(nice try)</span>', '443/tcp&nbsp;&nbsp;<span class="g">open</span>&nbsp;&nbsp;&nbsp;portfolio',
@@ -397,15 +397,15 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
        '<span class="r">[high]</span> sender domain is a lookalike', '<span class="r">[high]</span> QR code links to a lookalike', '<span class="a">Verdict: LIKELY PHISHING (risk score 8)</span>']
         .forEach(function (l, k) { setTimeout(function () { print(l); }, reduce ? 0 : k * 220); });
     },
-    matrix: function () { print('<span class="g">Wake up, recruiter...</span>'); matrixBurst(); },
+    matrix: function () { print('<span class="g">Wake up, recruiter…</span>'); matrixBurst(); },
     ls: function () { print('about.md&nbsp;&nbsp;experience.log&nbsp;&nbsp;tools/&nbsp;&nbsp;credentials.db&nbsp;&nbsp;<span class="d">flag.txt</span>'); },
-    date: function () { print(esc(new Date().toString())); },
+    date: function () { print(esc(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(new Date()))); },
     history: function () { hist.forEach(function (h, k) { print('<span class="d">' + (k + 1) + '</span>&nbsp;&nbsp;' + esc(h)); }); },
     clear: snap, snap: snap,
     theme: function () { var t = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; setTheme(t, true); print('<span class="g">Theme set to ' + t + '.</span>'); },
     exit: function () { closeTerm(); }
   };
-  cmds['sudo hire-vinit'] = function () { print('<span class="g">[sudo] permission granted.</span>'); print('Drafting the offer letter...'); setTimeout(function () { closeTerm(); emailAsk(); }, 800); };
+  cmds['sudo hire-vinit'] = function () { print('<span class="g">[sudo] permission granted.</span>'); print('Drafting the offer letter…'); setTimeout(function () { closeTerm(); emailAsk(); }, 800); };
   var names = Object.keys(cmds).concat(['cat flag.txt', 'sudo']);
   input.addEventListener('keydown', function (e) {
     if (e.key === 'Tab') {
@@ -420,7 +420,7 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
     hist.push(raw); hp = -1;
     print('<span class="g">guest@vinit:~$</span> ' + esc(raw));
     var low = raw.toLowerCase(), p = low.split(/\s+/);
-    if (cmds[low]) return cmds[low]();
+    if (Object.prototype.hasOwnProperty.call(cmds, low)) return cmds[low]();
     if (p[0] === 'cat' && low.indexOf('flag') > -1) return print('<span class="g">flag{y0u_4ctu4lly_ch3ck3d_n1c3}</span> <span class="d">Mention it in your email.</span>');
     if (p[0] === 'sudo') return print('<span class="r">guest is not in the sudoers file. This incident will be reported.</span> <span class="d">(To me. Hi.)</span>');
     if (low.indexOf('rm -rf') === 0) return print('<span class="r">Permission denied.</span> <span class="d">This portfolio has backups. And a SOC.</span>');

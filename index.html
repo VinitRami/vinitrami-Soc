@@ -70,24 +70,25 @@
 <script src="assets/app.js" defer></script>
 </head>
 <body>
-<a class="skip-link" href="#home">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="wrap">
   <nav aria-label="Main">
     <a class="logo" href="#home">Vinit Rami <kbd title="Press ~ to open the terminal">~</kbd></a>
-    <div class="dock" id="dock"><a class="on" href="#home" data-sec="home"><i class="ph ph-squares-four"></i>Overview</a><a href="#experience" data-sec="experience"><i class="ph ph-briefcase"></i>Experience</a><a href="#education" data-sec="education"><i class="ph ph-graduation-cap"></i>Education</a><a href="#skills" data-sec="skills"><i class="ph ph-stack"></i>Skills</a><a href="#contact" data-sec="contact"><i class="ph ph-envelope-simple"></i>Contact</a></div>
+    <div class="dock" id="dock"><a class="on" href="#home" data-sec="home"><i class="ph ph-squares-four" aria-hidden="true"></i>Overview</a><a href="#experience" data-sec="experience"><i class="ph ph-briefcase" aria-hidden="true"></i>Experience</a><a href="#education" data-sec="education"><i class="ph ph-graduation-cap" aria-hidden="true"></i>Education</a><a href="#skills" data-sec="skills"><i class="ph ph-stack" aria-hidden="true"></i>Skills</a><a href="#contact" data-sec="contact"><i class="ph ph-envelope-simple" aria-hidden="true"></i>Contact</a></div>
     <div class="nav-act">
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme" aria-pressed="false" title="Switch theme"><i class="ph ph-sun" aria-hidden="true"></i></button>
-      <a class="btn sec sm" data-open="cv" href="assets/Vinit_Rami_CV.pdf" download><i class="ph ph-download-simple"></i>Download CV</a>
+      <a class="btn sec sm" data-open="cv" href="assets/Vinit_Rami_CV.pdf" download><i class="ph ph-download-simple" aria-hidden="true"></i>Download CV</a>
     </div>
   </nav>
 
-  <main class="grid" id="home">
+  <main id="main">
+  <div class="grid" id="home">
     <div class="tile pad intro" id="about">
-      <div class="typed" aria-label="Cybersecurity Analyst"><span id="typed" aria-hidden="true">Cybersecurity Analyst</span><span class="caret" aria-hidden="true"></span></div>
+      <p class="typed"><span class="sr-only">Cybersecurity Analyst</span><span id="typed" aria-hidden="true">Cybersecurity Analyst</span><span class="caret" aria-hidden="true"></span></p>
       <h1>Break it like an attacker. Defend it like an analyst.</h1>
       <p>MSc Cyber Security (Merit), CEH v13 and a year of hands-on VAPT. Now building detection tools in London.</p>
-      <div class="ctas"><a class="btn pri" href="#projects">View projects <i class="ph ph-arrow-right"></i></a><a class="btn sec" data-open="email" href="#contact">Email me</a></div>
-      <a class="ph-badge" href="https://www.producthunt.com/@vinit_rami" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.604 8.4h-3.405V12h3.405c.995 0 1.801-.806 1.801-1.801 0-.993-.805-1.799-1.801-1.799zM12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm1.604 14.4h-3.405V18H7.801V6h5.804c2.319 0 4.2 1.88 4.2 4.199 0 2.321-1.881 4.201-4.201 4.201z"/></svg><span>I'm on Product Hunt</span><i class="ph ph-arrow-up-right"></i></a>
+      <div class="ctas"><a class="btn pri" href="#projects">View projects <i class="ph ph-arrow-right" aria-hidden="true"></i></a><a class="btn sec" data-open="email" href="#contact">Email me</a></div>
+      <a class="ph-badge" href="https://www.producthunt.com/@vinit_rami" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.604 8.4h-3.405V12h3.405c.995 0 1.801-.806 1.801-1.801 0-.993-.805-1.799-1.801-1.799zM12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm1.604 14.4h-3.405V18H7.801V6h5.804c2.319 0 4.2 1.88 4.2 4.199 0 2.321-1.881 4.201-4.201 4.201z"/></svg><span>I'm on Product Hunt</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
     </div>
 
     <div class="tile photo"><img src="assets/img/profile.webp" alt="Vinit Rami" width="800" height="1011" fetchpriority="high"></div>
@@ -98,47 +99,47 @@
     </div>
 
     <div class="tile creds">
-      <div class="cred"><span class="ic"><i class="ph ph-graduation-cap"></i></span><span class="tx"><b>MSc <em class="chipx gold">Merit</em></b><span>Cyber Security, Portsmouth</span></span></div>
-      <div class="cred"><span class="ic red"><i class="ph ph-crosshair"></i></span><span class="tx"><b>CEH v13 <em class="chipx green"><i class="ph ph-check"></i>Verified</em></b><span>EC-Council</span></span></div>
-      <div class="cred"><span class="ic red"><i class="ph ph-bug"></i></span><span class="tx"><b>VAPT <em class="chipx blue">1 year</em></b><span>Finance, healthcare, gov</span></span></div>
+      <div class="cred"><span class="ic"><i class="ph ph-graduation-cap" aria-hidden="true"></i></span><span class="tx"><b>MSc <em class="chipx gold">Merit</em></b><span>Cyber Security, Portsmouth</span></span></div>
+      <div class="cred"><span class="ic red"><i class="ph ph-crosshair" aria-hidden="true"></i></span><span class="tx"><b>CEH v13 <em class="chipx green"><i class="ph ph-check" aria-hidden="true"></i>Verified</em></b><span>EC-Council</span></span></div>
+      <div class="cred"><span class="ic red"><i class="ph ph-bug" aria-hidden="true"></i></span><span class="tx"><b>VAPT <em class="chipx blue">1 year</em></b><span>Finance, healthcare, gov</span></span></div>
     </div>
 
     <article class="tile tool phk" id="projects">
       <a class="cover" href="https://phishhawk.vinitrami.co.in" target="_blank" rel="noopener noreferrer" aria-label="PhishHawk, open the live app"></a>
       <div class="tool-head">
         <div>
-          <h2>PhishHawk</h2>
+          <h2 translate="no">PhishHawk</h2>
           <p>My MSc dissertation, now a live app that triages a reported phishing email in seconds.</p>
-          <div class="ctas"><a class="btn pri sm" href="https://phishhawk.vinitrami.co.in" target="_blank" rel="noopener noreferrer">Try it live <i class="ph ph-arrow-up-right"></i></a><a class="btn sec sm" href="https://github.com/vinitrami-Soc/phishhawk" target="_blank" rel="noopener noreferrer"><i class="ph ph-github-logo"></i>Source</a></div>
+          <div class="ctas"><a class="btn pri sm" href="https://phishhawk.vinitrami.co.in" target="_blank" rel="noopener noreferrer">Try it live <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a class="btn sec sm" href="https://github.com/vinitrami-Soc/phishhawk" target="_blank" rel="noopener noreferrer"><i class="ph ph-github-logo" aria-hidden="true"></i>Source</a></div>
         </div>
         <div class="stat"><div class="num" id="count" data-to="81.4">81.4%</div><span>of 5,714 unseen phishing<br>emails flagged</span></div>
       </div>
       <div class="carousel" aria-hidden="true">
-        <img src="assets/img/ph-1.webp" alt="" class="on pos-l">
-        <img loading="lazy" decoding="async" src="assets/img/ph-2.webp" alt="" class="pos-l">
-        <img loading="lazy" decoding="async" src="assets/img/ph-3.webp" alt="" class="pos-l">
+        <img src="assets/img/ph-1.webp" alt="" width="1600" height="800" class="on pos-l">
+        <img loading="lazy" decoding="async" src="assets/img/ph-2.webp" alt="" width="1600" height="800" class="pos-l">
+        <img loading="lazy" decoding="async" src="assets/img/ph-3.webp" alt="" width="1600" height="800" class="pos-l">
         <div class="bars"></div>
       </div>
     </article>
 
     <a class="tile tool small ip" href="https://github.com/vinitrami-Soc/intelpulse" target="_blank" rel="noopener noreferrer">
       <div class="carousel" aria-hidden="true">
-        <img loading="lazy" decoding="async" src="assets/img/ip-1-social.webp" alt="" class="on pos-l">
-        <img loading="lazy" decoding="async" src="assets/img/ip-2-hero.webp" alt="" class="pos-ip2">
-        <img loading="lazy" decoding="async" src="assets/img/ip-3-graph.webp" alt="" class="pos-ip3">
+        <img loading="lazy" decoding="async" src="assets/img/ip-1-social.webp" alt="" width="1280" height="640" class="on pos-l">
+        <img loading="lazy" decoding="async" src="assets/img/ip-2-hero.webp" alt="" width="1100" height="700" class="pos-ip2">
+        <img loading="lazy" decoding="async" src="assets/img/ip-3-graph.webp" alt="" width="1200" height="783" class="pos-ip3">
         <div class="bars"></div>
       </div>
-      <div class="tool-head"><h2>IntelPulse <i class="ph ph-arrow-up-right"></i></h2><p>One alert in, one verdict out</p></div>
+      <div class="tool-head"><h2 translate="no">IntelPulse <i class="ph ph-arrow-up-right" aria-hidden="true"></i></h2><p>One alert in, one verdict out</p></div>
     </a>
 
     <a class="tile tool small ow" href="https://github.com/vinitrami-Soc/owltriage" target="_blank" rel="noopener noreferrer">
       <div class="carousel" aria-hidden="true">
-        <img loading="lazy" decoding="async" src="assets/img/ow-1-perch.webp" alt="" class="on pos-l">
-        <img loading="lazy" decoding="async" src="assets/img/ow-2-hunt.webp" alt="" class="pos-c">
-        <img loading="lazy" decoding="async" src="assets/img/ow-1-summary.webp" alt="" class="pos-tl">
+        <picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/img/ow-1-perch-still.webp"><img loading="lazy" decoding="async" src="assets/img/ow-1-perch.webp" alt="" width="880" height="533" class="on pos-l"></picture>
+        <picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/img/ow-2-hunt-still.webp"><img loading="lazy" decoding="async" src="assets/img/ow-2-hunt.webp" alt="" width="960" height="582" class="pos-c"></picture>
+        <img loading="lazy" decoding="async" src="assets/img/ow-1-summary.webp" alt="" width="1200" height="510" class="pos-tl">
         <div class="bars"></div>
       </div>
-      <div class="tool-head"><h2>OwlTriage <i class="ph ph-arrow-up-right"></i></h2><p>Logs in, plain sentences out</p></div>
+      <div class="tool-head"><h2 translate="no">OwlTriage <i class="ph ph-arrow-up-right" aria-hidden="true"></i></h2><p>Logs in, plain sentences out</p></div>
     </a>
 
     <button class="tile term-tile" id="termTile" type="button" aria-label="Open the interactive terminal">
@@ -147,10 +148,10 @@
       <span class="inner">
         <span class="mini" aria-hidden="true">
           <span class="mbar"><i class="dot-r"></i><i class="dot-y"></i><i class="dot-g"></i><span>guest@vinit: ~</span></span>
-          <span class="screen" id="mini"></span>
+          <span class="screen" id="mini" translate="no"></span>
         </span>
         <span class="label"><b>Open the terminal</b><span>whoami, nmap, phish, a hidden flag, and a snap.</span></span>
-        <span class="go"><i class="ph ph-terminal-window"></i>Press ~</span>
+        <span class="go"><i class="ph ph-terminal-window" aria-hidden="true"></i>Press ~</span>
       </span>
     </button>
 
@@ -163,9 +164,9 @@
             <svg viewBox="0 0 360 162" preserveAspectRatio="none" aria-hidden="true"><path class="arc" id="arcSG"></path><path class="arc" id="arcUK"></path></svg>
           </div></div>
           <div class="zoom" role="group" aria-label="Map zoom">
-            <button type="button" id="zIn" aria-label="Zoom in"><i class="ph ph-plus"></i></button>
-            <button type="button" id="zOut" aria-label="Zoom out"><i class="ph ph-minus"></i></button>
-            <button type="button" id="zReset" aria-label="Reset the map"><i class="ph ph-arrows-in"></i></button>
+            <button type="button" id="zIn" aria-label="Zoom in"><i class="ph ph-plus" aria-hidden="true"></i></button>
+            <button type="button" id="zOut" aria-label="Zoom out"><i class="ph ph-minus" aria-hidden="true"></i></button>
+            <button type="button" id="zReset" aria-label="Reset the map"><i class="ph ph-arrows-in" aria-hidden="true"></i></button>
             <span class="zl" id="zLevel" aria-live="polite">1x</span>
           </div>
           <div class="tip" id="tip" hidden></div>
@@ -178,35 +179,35 @@
           <button type="button" data-place="IN">India</button><button type="button" data-place="SG">Singapore</button><button type="button" data-place="UK">United Kingdom</button>
         </div>
         <div id="place" class="swap"></div>
-        <div class="map-mail"><span>Hiring in one of these places?</span><a class="btn pri sm" data-open="email" href="#contact"><i class="ph ph-envelope-simple"></i>Email me</a></div>
+        <div class="map-mail"><span>Hiring in one of these places?</span><a class="btn pri sm" data-open="email" href="#contact"><i class="ph ph-envelope-simple" aria-hidden="true"></i>Email me</a></div>
       </div>
     </div>
-  </main>
+  </div>
 
   <div class="numbers" id="numbers">
-    <div class="nm"><div class="top"><span class="ic"><i class="ph ph-target"></i></span><svg class="ring" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="18" class="val" id="ring"></circle></svg></div>
+    <div class="nm"><div class="top"><span class="ic"><i class="ph ph-target" aria-hidden="true"></i></span><svg class="ring" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="18" class="val" id="ring"></circle></svg></div>
       <b data-n="40" data-s="%">40%</b><span class="cap">of critical findings closed by clients within 60 days</span><small>VAPT, 7HillsCyberWall</small></div>
-    <div class="nm"><div class="top"><span class="ic"><i class="ph ph-users-three"></i></span><span class="viz people" data-count="20" title="1 dot = 10 students" aria-hidden="true"></span></div>
+    <div class="nm"><div class="top"><span class="ic"><i class="ph ph-users-three" aria-hidden="true"></i></span><span class="viz people" data-count="20" title="1 dot = 10 students" aria-hidden="true"></span></div>
       <b data-n="200" data-s="+">200+</b><span class="cap">students trained on phishing and safe digital habits</span><small>ITMBU Cyber Crime Cell</small></div>
-    <div class="nm"><div class="top"><span class="ic"><i class="ph ph-list-checks"></i></span><span class="viz rules" data-count="37" title="1 square = 1 ATT&amp;CK technique" aria-hidden="true"></span></div>
+    <div class="nm"><div class="top"><span class="ic"><i class="ph ph-list-checks" aria-hidden="true"></i></span><span class="viz rules" data-count="37" title="1 square = 1 ATT&amp;CK technique" aria-hidden="true"></span></div>
       <b data-n="65" data-s="">65</b><span class="cap">detection rules across 37 ATT&amp;CK techniques</span><small>OwlTriage</small></div>
-    <div class="nm"><div class="top"><span class="ic"><i class="ph ph-flask"></i></span><span class="viz tests" data-count="12" title="1 bar = 100 tests" aria-hidden="true"></span></div>
+    <div class="nm"><div class="top"><span class="ic"><i class="ph ph-flask" aria-hidden="true"></i></span><span class="viz tests" data-count="12" title="1 bar = 100 tests" aria-hidden="true"></span></div>
       <b data-n="1200" data-s="">1,200</b><span class="cap">automated tests behind the live app</span><small>PhishHawk</small></div>
   </div>
 
   <section id="experience">
     <h2 class="sec">Experience</h2>
     <div class="xp">
-      <article class="xt red"><div class="xh"><span class="ic red"><i class="ph ph-bug"></i></span><em class="team red">Red team</em></div>
+      <article class="xt red"><div class="xh"><span class="ic red"><i class="ph ph-bug" aria-hidden="true"></i></span><em class="team red">Red team</em></div>
         <span class="yr">2024 - 2025</span><h3>VAPT Analyst</h3><div class="org">7HillsCyberWall</div>
         <p>Found SQLi, XSS and SSRF in live finance, healthcare and government systems. Clients closed 40% of critical findings within 60 days.</p></article>
-      <article class="xt"><div class="xh"><span class="ic"><i class="ph ph-detective"></i></span><em class="team blue">Blue team</em></div>
+      <article class="xt"><div class="xh"><span class="ic"><i class="ph ph-detective" aria-hidden="true"></i></span><em class="team blue">Blue team</em></div>
         <span class="yr">2024 - 2026</span><h3>Researcher</h3><div class="org">ITMBU Cyber Crime Cell</div>
         <p>Ran awareness workshops on phishing and social engineering for more than 200 students.</p></article>
-      <article class="xt"><div class="xh"><span class="ic"><i class="ph ph-chalkboard-teacher"></i></span></div>
+      <article class="xt"><div class="xh"><span class="ic"><i class="ph ph-chalkboard-teacher" aria-hidden="true"></i></span></div>
         <span class="yr">2024</span><h3>Cybersecurity Awareness Intern</h3><div class="org">Urmi School</div>
         <p>Taught cyber awareness, Python and Java to senior students.</p></article>
-      <article class="xt"><div class="xh"><span class="ic"><i class="ph ph-sun-horizon"></i></span></div>
+      <article class="xt"><div class="xh"><span class="ic"><i class="ph ph-sun-horizon" aria-hidden="true"></i></span></div>
         <span class="yr">2023</span><h3>Research Intern</h3><div class="org">Singapore Institute of Technology</div>
         <p>Used machine learning to predict solar power output.</p></article>
     </div>
@@ -215,30 +216,30 @@
   <section id="education">
     <h2 class="sec">Education</h2>
     <div class="edu">
-      <article class="xt msc"><div class="xh"><span class="ic"><i class="ph ph-graduation-cap"></i></span><span class="yr">2025 - 2026</span></div>
+      <article class="xt msc"><div class="xh"><span class="ic"><i class="ph ph-graduation-cap" aria-hidden="true"></i></span><span class="yr">2025 - 2026</span></div>
         <h3>MSc Cyber Security and Forensic IT <em class="chipx gold">Merit</em></h3><div class="org">University of Portsmouth, United Kingdom</div>
         <p>My dissertation on phishing attack analysis and detection became PhishHawk, now a live web app that anyone can use.</p>
-        <a class="more" href="#projects">See PhishHawk <i class="ph ph-arrow-right"></i></a></article>
-      <article class="xt"><div class="xh"><span class="ic"><i class="ph ph-student"></i></span><span class="yr">2021 - 2025</span></div>
+        <a class="more" href="#projects">See PhishHawk <i class="ph ph-arrow-right" aria-hidden="true"></i></a></article>
+      <article class="xt"><div class="xh"><span class="ic"><i class="ph ph-student" aria-hidden="true"></i></span><span class="yr">2021 - 2025</span></div>
         <h3>B.Tech Cybersecurity and Networking</h3><div class="org">ITM SLS Baroda University, Vadodara</div>
         <p>Four years of networking and security fundamentals.</p></article>
-      <article class="xt beyond"><div class="xh"><span class="ic"><i class="ph ph-users-three"></i></span><span class="yr">Always on</span></div>
+      <article class="xt beyond"><div class="xh"><span class="ic"><i class="ph ph-users-three" aria-hidden="true"></i></span><span class="yr">Always on</span></div>
         <h3>Beyond the classroom</h3><div class="org">Events, hobbies and a few confessions</div>
         <p>A mock court hearing, AWS events and the Cyber Security Leaders Summit in Birmingham.</p>
         <ul class="story hob">
-          <li><i class="ph ph-camera"></i><span><b>Photography</b><small>In real life, I tell stories with photos. In digital forensics, the photos tell me theirs, metadata and all.</small></span></li>
-          <li><i class="ph ph-airplane-tilt"></i><span><b>Travel</b><small>I love moving from place to place, the way a payload moves between ports.</small></span></li>
-          <li><i class="ph ph-smiley"></i><span><b>Making people laugh</b><small>Whether you've just been scammed or deleted the entire company server, I'll make you laugh. I keep smiling, even in bad times.</small></span></li>
-          <li><i class="ph ph-binoculars"></i><span><b>Observing people</b><small>I notice the small things and spot what's out of place. It's the same instinct that makes me love SOC work.</small></span></li>
+          <li><i class="ph ph-camera" aria-hidden="true"></i><span><b>Photography</b><small>In real life, I tell stories with photos. In digital forensics, the photos tell me theirs, metadata and all.</small></span></li>
+          <li><i class="ph ph-airplane-tilt" aria-hidden="true"></i><span><b>Travel</b><small>I love moving from place to place, the way a payload moves between ports.</small></span></li>
+          <li><i class="ph ph-smiley" aria-hidden="true"></i><span><b>Making people laugh</b><small>Whether you've just been scammed or deleted the entire company server, I'll make you laugh. I keep smiling, even in bad times.</small></span></li>
+          <li><i class="ph ph-binoculars" aria-hidden="true"></i><span><b>Observing people</b><small>I notice the small things and spot what's out of place. It's the same instinct that makes me love SOC work.</small></span></li>
         </ul></article>
-      <article class="xt origin"><div class="xh"><span class="ic gold"><i class="ph ph-book-open"></i></span><span class="yr">2002 - 2021</span></div>
+      <article class="xt origin"><div class="xh"><span class="ic gold"><i class="ph ph-book-open" aria-hidden="true"></i></span><span class="yr">2002 - 2021</span></div>
         <h3>Origin story <em class="chipx gold">Bonus lore</em></h3><div class="org">The years before cybersecurity</div>
         <ol class="story">
-          <li><i class="ph ph-baby"></i><span><b>Born in 2002</b><small>Version 1.0 shipped. No patch notes were included.</small></span></li>
-          <li><i class="ph ph-footprints"></i><span><b>Learned to walk</b><small>It took a few attempts, like any good exploit.</small></span></li>
-          <li><i class="ph ph-soccer-ball"></i><span><b>Played a lot of football</b><small>Still my favourite team sport, after incident response.</small></span></li>
-          <li><i class="ph ph-book-open"></i><span><b>Became a Marvel comics fan</b><small>Every hero needs an origin story. This one is mine.</small></span></li>
-          <li><i class="ph ph-exam"></i><span><b>Finished higher secondary school</b><small>Class 12, done in 2021. Next stop: cybersecurity.</small></span></li>
+          <li><i class="ph ph-baby" aria-hidden="true"></i><span><b>Born in 2002</b><small>Version 1.0 shipped. No patch notes were included.</small></span></li>
+          <li><i class="ph ph-footprints" aria-hidden="true"></i><span><b>Learned to walk</b><small>It took a few attempts, like any good exploit.</small></span></li>
+          <li><i class="ph ph-soccer-ball" aria-hidden="true"></i><span><b>Played a lot of football</b><small>Still my favourite team sport, after incident response.</small></span></li>
+          <li><i class="ph ph-book-open" aria-hidden="true"></i><span><b>Became a Marvel comics fan</b><small>Every hero needs an origin story. This one is mine.</small></span></li>
+          <li><i class="ph ph-exam" aria-hidden="true"></i><span><b>Finished higher secondary school</b><small>Class 12, done in 2021. Next stop: cybersecurity.</small></span></li>
         </ol></article>
     </div>
   </section>
@@ -254,59 +255,59 @@
         <button type="button" data-tab="code" role="tab" aria-selected="false">Code</button>
       </div>
       <div class="chipset" id="chips">
-        <span data-g="off"><i class="ph ph-bug"></i>Burp Suite Pro</span>
-        <span data-g="off"><i class="ph ph-bug"></i>Metasploit</span>
-        <span data-g="off"><i class="ph ph-bug"></i>OWASP Top 10</span>
-        <span data-g="off"><i class="ph ph-bug"></i>API security testing</span>
-        <span data-g="off"><i class="ph ph-bug"></i>Nmap</span>
-        <span data-g="off"><i class="ph ph-bug"></i>Nessus</span>
-        <span data-g="off"><i class="ph ph-bug"></i>Privilege escalation</span>
-        <span data-g="def"><i class="ph ph-shield-check"></i>SIEM (Wazuh)</span>
-        <span data-g="def"><i class="ph ph-shield-check"></i>Log analysis</span>
-        <span data-g="def"><i class="ph ph-shield-check"></i>Incident response</span>
-        <span data-g="def"><i class="ph ph-shield-check"></i>Phishing email analysis</span>
-        <span data-g="def"><i class="ph ph-shield-check"></i>Threat intelligence</span>
-        <span data-g="def"><i class="ph ph-shield-check"></i>MITRE ATT&amp;CK</span>
-        <span data-g="for"><i class="ph ph-magnifying-glass"></i>Autopsy</span>
-        <span data-g="for"><i class="ph ph-magnifying-glass"></i>Volatility</span>
-        <span data-g="for"><i class="ph ph-magnifying-glass"></i>Memory forensics</span>
-        <span data-g="for"><i class="ph ph-magnifying-glass"></i>Disk forensics</span>
-        <span data-g="for"><i class="ph ph-magnifying-glass"></i>Mobile forensics</span>
-        <span data-g="for"><i class="ph ph-magnifying-glass"></i>Windows event logs (EVTX, Sysmon)</span>
-        <span data-g="for"><i class="ph ph-magnifying-glass"></i>OSINT</span>
-        <span data-g="code"><i class="ph ph-code"></i>Python</span>
-        <span data-g="code"><i class="ph ph-code"></i>Bash</span>
-        <span data-g="code"><i class="ph ph-code"></i>FastAPI</span>
-        <span data-g="code"><i class="ph ph-code"></i>Docker</span>
-        <span data-g="code"><i class="ph ph-code"></i>Git</span>
-        <span data-g="code"><i class="ph ph-code"></i>Wireshark</span>
+        <span data-g="off"><i class="ph ph-bug" aria-hidden="true"></i>Burp Suite Pro</span>
+        <span data-g="off"><i class="ph ph-bug" aria-hidden="true"></i>Metasploit</span>
+        <span data-g="off"><i class="ph ph-bug" aria-hidden="true"></i>OWASP Top 10</span>
+        <span data-g="off"><i class="ph ph-bug" aria-hidden="true"></i>API security testing</span>
+        <span data-g="off"><i class="ph ph-bug" aria-hidden="true"></i>Nmap</span>
+        <span data-g="off"><i class="ph ph-bug" aria-hidden="true"></i>Nessus</span>
+        <span data-g="off"><i class="ph ph-bug" aria-hidden="true"></i>Privilege escalation</span>
+        <span data-g="def"><i class="ph ph-shield-check" aria-hidden="true"></i>SIEM (Wazuh)</span>
+        <span data-g="def"><i class="ph ph-shield-check" aria-hidden="true"></i>Log analysis</span>
+        <span data-g="def"><i class="ph ph-shield-check" aria-hidden="true"></i>Incident response</span>
+        <span data-g="def"><i class="ph ph-shield-check" aria-hidden="true"></i>Phishing email analysis</span>
+        <span data-g="def"><i class="ph ph-shield-check" aria-hidden="true"></i>Threat intelligence</span>
+        <span data-g="def"><i class="ph ph-shield-check" aria-hidden="true"></i>MITRE ATT&amp;CK</span>
+        <span data-g="for"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Autopsy</span>
+        <span data-g="for"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Volatility</span>
+        <span data-g="for"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Memory forensics</span>
+        <span data-g="for"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Disk forensics</span>
+        <span data-g="for"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Mobile forensics</span>
+        <span data-g="for"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Windows event logs (EVTX, Sysmon)</span>
+        <span data-g="for"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>OSINT</span>
+        <span data-g="code"><i class="ph ph-code" aria-hidden="true"></i>Python</span>
+        <span data-g="code"><i class="ph ph-code" aria-hidden="true"></i>Bash</span>
+        <span data-g="code"><i class="ph ph-code" aria-hidden="true"></i>FastAPI</span>
+        <span data-g="code"><i class="ph ph-code" aria-hidden="true"></i>Docker</span>
+        <span data-g="code"><i class="ph ph-code" aria-hidden="true"></i>Git</span>
+        <span data-g="code"><i class="ph ph-code" aria-hidden="true"></i>Wireshark</span>
       </div>
     </div>
 
     <div class="sec-row gap-top" id="certs"><h2 class="sec">Certifications</h2>
       <div class="legend"><span><i class="red"></i>Red team (offensive)</span><span><i></i>Blue team (defensive)</span></div></div>
     <div class="certs">
-      <div class="cert top red"><div class="lt"><span class="ic red"><i class="ph ph-crosshair"></i></span><div><b>Certified Ethical Hacker (CEH v13) <em class="team red">Red team</em></b><small>EC-Council. Issued November 2024</small></div></div>
-        <div class="id"><span>ID ECC7846195302</span><button class="btn sec sm" id="copyId" type="button"><i class="ph ph-copy"></i>Copy ID</button></div></div>
-      <div class="cert"><div class="ch"><span class="ic"><i class="ph ph-magnifying-glass"></i></span><em class="team blue">Blue team</em></div><b>Digital Forensics Essentials (DFE)</b><small>EC-Council</small></div>
-      <div class="cert red"><div class="ch"><span class="ic red"><i class="ph ph-syringe"></i></span><em class="team red">Red team</em></div><b>SQL Injection Attacks</b><small>EC-Council, August 2023</small></div>
-      <div class="cert"><div class="ch"><span class="ic"><i class="ph ph-shield-check"></i></span><em class="team blue">Blue team</em></div><b>Network Defense Essentials (NDE)</b><small>EC-Council</small></div>
-      <div class="cert red"><div class="ch"><span class="ic red"><i class="ph ph-bug"></i></span><em class="team red">Red team</em></div><b>Ethical Hacking Essentials (EHE)</b><small>EC-Council</small></div>
-      <div class="cert"><div class="ch"><span class="ic"><i class="ph ph-eye-slash"></i></span><em class="team blue">Blue team</em></div><b>Introduction to Dark Web, Anonymity and Cryptocurrency</b><small>EC-Council</small></div>
+      <div class="cert top red"><div class="lt"><span class="ic red"><i class="ph ph-crosshair" aria-hidden="true"></i></span><div><b>Certified Ethical Hacker (CEH v13) <em class="team red">Red team</em></b><small>EC-Council. Issued November 2024</small></div></div>
+        <div class="id"><span>ID ECC7846195302</span><button class="btn sec sm" id="copyId" type="button"><i class="ph ph-copy" aria-hidden="true"></i>Copy ID</button></div></div>
+      <div class="cert"><div class="ch"><span class="ic"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></span><em class="team blue">Blue team</em></div><b>Digital Forensics Essentials (DFE)</b><small>EC-Council</small></div>
+      <div class="cert red"><div class="ch"><span class="ic red"><i class="ph ph-syringe" aria-hidden="true"></i></span><em class="team red">Red team</em></div><b>SQL Injection Attacks</b><small>EC-Council, August 2023</small></div>
+      <div class="cert"><div class="ch"><span class="ic"><i class="ph ph-shield-check" aria-hidden="true"></i></span><em class="team blue">Blue team</em></div><b>Network Defense Essentials (NDE)</b><small>EC-Council</small></div>
+      <div class="cert red"><div class="ch"><span class="ic red"><i class="ph ph-bug" aria-hidden="true"></i></span><em class="team red">Red team</em></div><b>Ethical Hacking Essentials (EHE)</b><small>EC-Council</small></div>
+      <div class="cert"><div class="ch"><span class="ic"><i class="ph ph-eye-slash" aria-hidden="true"></i></span><em class="team blue">Blue team</em></div><b>Introduction to Dark Web, Anonymity and Cryptocurrency</b><small>EC-Council</small></div>
     </div>
 
     <h2 class="sec gap-top">Writing</h2>
     <div class="writing">
       <a class="post" href="https://medium.com/@ramivinit/i-turned-my-msc-dissertation-into-a-free-phishing-triage-web-app-and-it-runs-for-0-31a69b1c75bc" target="_blank" rel="noopener noreferrer">
-        <span class="src">Medium</span><span><b>How my MSc dissertation became a free phishing triage web app</b><p>Oracle Cloud's free tier, a Cloudflare Tunnel and a lot of testing.</p></span><i class="ph ph-arrow-up-right"></i></a>
+        <span class="src">Medium</span><span><b>How my MSc dissertation became a free phishing triage web app</b><p>Oracle Cloud's free tier, a Cloudflare Tunnel and a lot of testing.</p></span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
       <a class="post" href="https://medium.com/@ramivinit/i-built-an-open-source-tool-that-triages-a-reported-phishing-email-in-under-a-second-fbf591ef52b0" target="_blank" rel="noopener noreferrer">
-        <span class="src">Medium</span><span><b>Triaging a reported phishing email in under a second</b><p>Why I built PhishHawk, and what it checks first.</p></span><i class="ph ph-arrow-up-right"></i></a>
+        <span class="src">Medium</span><span><b>Triaging a reported phishing email in under a second</b><p>Why I built PhishHawk, and what it checks first.</p></span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
     </div>
   </section>
 
   <div class="contact" id="contact">
     <div><h2>Hiring for a cyber team?</h2><p>Open to cybersecurity analyst and intern roles. I reply within a day.</p>
-      <div class="ctas"><a class="btn" data-open="email" href="#contact">Email me <i class="ph ph-envelope-simple"></i></a><a class="btn ghost" data-open="cv" href="assets/Vinit_Rami_CV.pdf" download>Download CV</a></div></div>
+      <div class="ctas"><a class="btn" data-open="email" href="#contact">Email me <i class="ph ph-envelope-simple" aria-hidden="true"></i></a><a class="btn ghost" data-open="cv" href="assets/Vinit_Rami_CV.pdf" download>Download CV</a></div></div>
     <div class="socials">
       <a class="soc" href="https://github.com/vinitrami-Soc" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a>
       <a class="soc" href="https://www.linkedin.com/in/vinitrami-002855228" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
@@ -314,6 +315,7 @@
       <a class="soc" href="https://www.producthunt.com/@vinit_rami" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.604 8.4h-3.405V12h3.405c.995 0 1.801-.806 1.801-1.801 0-.993-.805-1.799-1.801-1.799zM12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm1.604 14.4h-3.405V18H7.801V6h5.804c2.319 0 4.2 1.88 4.2 4.199 0 2.321-1.881 4.201-4.201 4.201z"/></svg>Product Hunt</a>
     </div>
   </div>
+  </main>
   <footer>
     <span class="copy">&copy; 2026 Vinit Rami. All rights reserved.</span>
     <span>Press <span class="k">~</span> for the terminal. Some say there is a flag.</span>
@@ -325,15 +327,15 @@
 
 <div class="scrim" id="modalScrim" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
-    <button class="x" id="mClose" type="button" aria-label="Close"><i class="ph ph-x"></i></button>
+    <button class="x" id="mClose" type="button" aria-label="Close"><i class="ph ph-x" aria-hidden="true"></i></button>
     <div id="mBody"></div>
   </div>
 </div>
 
 <div class="scrim" id="termScrim" hidden>
   <div class="term" role="dialog" aria-modal="true" aria-label="Interactive terminal">
-    <div class="bar"><i class="dot-r"></i><i class="dot-y"></i><i class="dot-g"></i><span>guest@vinit: ~</span><button id="tClose" type="button" aria-label="Close terminal"><i class="ph ph-x"></i></button></div>
-    <div class="out" id="tOut" aria-live="polite"></div>
+    <div class="bar"><i class="dot-r"></i><i class="dot-y"></i><i class="dot-g"></i><span>guest@vinit: ~</span><button id="tClose" type="button" aria-label="Close terminal"><i class="ph ph-x" aria-hidden="true"></i></button></div>
+    <div class="out" id="tOut" aria-live="polite" translate="no"></div>
     <div class="in"><label for="tIn">guest@vinit:~$</label><input id="tIn" type="text" autocomplete="off" spellcheck="false" autocapitalize="off"></div>
   </div>
 </div>
