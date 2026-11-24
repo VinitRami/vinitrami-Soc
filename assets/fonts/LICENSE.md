@@ -1,29 +1,21 @@
-# Bundled font licences
+# Bundled font and icon licences
 
-All four families here are licensed under the **SIL Open Font License 1.1**.
-The details below were read from each file's own `name` table (the `copyright`
-and `licenseURL` records), not copied from a web page.
+| File | Family | Licence | Copyright | Upstream |
+|---|---|---|---|---|
+| `InstrumentSans-Regular.woff2`, `InstrumentSans-Bold.woff2` | Instrument Sans | SIL Open Font License 1.1 | Copyright 2022 The Instrument Sans Project Authors | https://github.com/Instrument/instrument-sans |
+| `GeistMono-Regular.woff2` | Geist Mono | SIL Open Font License 1.1 | Copyright 2024 The Geist Project Authors | https://github.com/vercel/geist-font |
+| `phosphor-subset.woff2` | Phosphor Icons 2.1.1 (regular) | MIT | Copyright (c) 2020-2021 Phosphor Icons | https://github.com/phosphor-icons/web |
 
-| File | Family | Copyright | Upstream |
-|---|---|---|---|
-| `DMSans.woff2` | DM Sans | Copyright 2014 The DM Sans Project Authors | https://github.com/googlefonts/dm-fonts |
-| `JetBrainsMono.woff2` | JetBrains Mono | Copyright 2020 The JetBrains Mono Project Authors | https://github.com/JetBrains/JetBrainsMono |
-| `SpaceGrotesk.woff2` | Space Grotesk | Copyright 2020 The Space Grotesk Project Authors | https://github.com/floriankarsten/space-grotesk |
-| `Caveat-600.woff2` | Caveat | Copyright 2014 The Caveat Project Authors | https://github.com/googlefonts/caveat |
+The copyright lines were read from each font's own `name` table and from the
+Phosphor package's `LICENSE` file.
 
-Full licence text: <https://openfontlicense.org/open-font-license-official-text/>
-(each file's own `licenseURL` record points at `scripts.sil.org/OFL`, which
-redirects there).
+All four files are WOFF2 subsets. The two text families keep Latin, Latin-1
+and common punctuation. The icon font keeps only the glyphs this page uses
+(the matching `.ph-*` rules are at the top of `assets/site.css`), which cuts it
+from 147 KB to about 6 KB. Nothing is renamed or redrawn.
 
-These are subsetted WOFF2 builds. Google Fonts' subsetter drops the embedded
-licence-text record and keeps only the URL, which is why the text is linked
-above rather than quoted from the files.
-
-The OFL permits bundling and redistribution, including in a commercial work,
-provided the fonts are not sold on their own and any modified version is not
-distributed under the original reserved name. Nothing here is renamed or
-modified beyond subsetting.
-
-The first three are variable fonts: one file covers the whole weight axis
-(DM Sans 100 to 1000, JetBrains Mono 400 to 800, Space Grotesk 300 to 700). Caveat is
-static at weight 600.
+- OFL 1.1 text: <https://openfontlicense.org/open-font-license-official-text/>
+  The OFL permits bundling and redistribution, provided the fonts are not
+  sold on their own and a modified version is not distributed under the
+  original reserved name.
+- MIT text: <https://github.com/phosphor-icons/web/blob/master/LICENSE>
