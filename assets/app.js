@@ -76,6 +76,8 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
     kick();
   });
   dock.addEventListener('pointerleave', function () { dItems.forEach(function (it) { it.t = 0; it.el.dataset.near = 'false'; }); kick(); });
+  function dockFade() { dock.classList.toggle('more', dock.scrollWidth > dock.clientWidth + 1 && dock.scrollLeft + dock.clientWidth < dock.scrollWidth - 4); }
+  dock.addEventListener('scroll', dockFade, { passive: true }); window.addEventListener('resize', dockFade); dockFade();
   function setOn(id) {
     dItems.forEach(function (it) {
       var on = it.el.dataset.sec === id; it.el.classList.toggle('on', on);
@@ -319,8 +321,11 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
   /* terminal */
   var tScrim = $('#termScrim'), out = $('#tOut'), input = $('#tIn'), hist = [], hp = -1, tLast = null, snapping = false;
   function print(html) { var d = document.createElement('div'); d.innerHTML = html; out.appendChild(d); out.scrollTop = out.scrollHeight; }
-  function greet() { print('<span class="c">Vinit Rami · interactive terminal</span>'); print('<span class="d">Type</span> <span class="g">help</span> <span class="d">to see the commands. Tab completes.</span>'); print('&nbsp;'); }
-  function openTerm(from) { tLast = from || document.activeElement; tScrim.hidden = false; if (!out.children.length) greet(); setTimeout(function () { input.focus(); }, 40); }
+  /* rows of [left, right] trusted HTML, laid out as a grid so long text wraps inside its own column */
+  function table(rows, cls) { print('<div class="kv' + (cls ? ' ' + cls : '') + '">' + rows.map(function (r) { return r.map(function (c) { return '<span>' + c + '</span>'; }).join(''); }).join('') + '</div>'); }
+  var touch = matchMedia('(hover: none)').matches;
+  function greet() { print('<span class="c">Vinit Rami · interactive terminal</span>'); print(touch ? '<span class="d">Tap a command below, or type</span> <span class="g">help</span><span class="d">.</span>' : '<span class="d">Type</span> <span class="g">help</span> <span class="d">to see the commands. Tab completes.</span>'); print('&nbsp;'); }
+  function openTerm(from) { tLast = from || document.activeElement; tScrim.hidden = false; if (!out.children.length) greet(); if (!touch) setTimeout(function () { input.focus(); }, 40); else $('#tClose').focus(); }
   function closeTerm() { tScrim.hidden = true; if (tLast && tLast.focus) tLast.focus(); }
   $('#tClose').addEventListener('click', closeTerm);
   tScrim.addEventListener('click', function (e) { if (e.target === tScrim) closeTerm(); });
@@ -356,10 +361,10 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
 
   var cmds = {
     help: function () {
-      [['whoami', 'who is this guy?'], ['skills', 'dump the arsenal'], ['certs', 'verified credentials'], ['projects', 'the three tools'],
+      table([['whoami', 'who is this guy?'], ['skills', 'dump the arsenal'], ['certs', 'verified credentials'], ['projects', 'the three tools'],
        ['contact', 'open a channel'], ['cv', 'download the CV'], ['nmap', 'scan this portfolio'], ['phish', 'run PhishHawk on a sample'],
        ['matrix', 'you know what this does'], ['theme', 'switch light and dark'], ['sudo hire-vinit', 'you know you want to'], ['clear', 'snap the screen away'], ['exit', 'close']]
-        .forEach(function (c) { print('&nbsp;&nbsp;<span class="g">' + c[0] + '</span>' + '&nbsp;'.repeat(Math.max(1, 17 - c[0].length)) + '<span class="d">' + c[1] + '</span>'); });
+        .map(function (c) { return ['<span class="g">' + c[0] + '</span>', '<span class="d">' + c[1] + '</span>']; }), 'help');
     },
     whoami: function () {
       print('<span class="c">Vinit Rami</span> · Cybersecurity Analyst · CEH v13');
@@ -368,10 +373,10 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
       print('<span class="d">"Every log tells a story. I read the boring ones twice."</span>');
     },
     skills: function () {
-      print('<span class="r">[red team]</span>&nbsp;&nbsp;Burp Suite Pro, Metasploit, OWASP Top 10, API security testing');
-      print('<span class="c">[blue team]</span>&nbsp;SIEM (Wazuh), log analysis, incident response');
-      print('<span class="g">[forensics]</span>&nbsp;Autopsy, Volatility, memory, disk and mobile forensics');
-      print('<span class="d">[stack]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Python, Bash, Wireshark, Nmap, Nessus, MITRE ATT&amp;CK');
+      table([['<span class="r">[red team]</span>', 'Burp Suite Pro, Metasploit, OWASP Top 10, API security testing'],
+             ['<span class="c">[blue team]</span>', 'SIEM (Wazuh), log analysis, incident response'],
+             ['<span class="g">[forensics]</span>', 'Autopsy, Volatility, memory, disk and mobile forensics'],
+             ['<span class="d">[stack]</span>', 'Python, Bash, Wireshark, Nmap, Nessus, MITRE ATT&amp;CK']], 'tags');
     },
     certs: function () {
       [['CEH v13 · EC-Council <span class="d">(ECC7846195302)</span>', 1], ['Digital Forensics Essentials · EC-Council', 0], ['SQL Injection Attacks · EC-Council', 1],
@@ -379,31 +384,34 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
         .forEach(function (c) { print('<span class="' + (c[1] ? 'r' : 'c') + '">[✓]</span> ' + c[0] + ' <span class="d">' + (c[1] ? 'red team' : 'blue team') + '</span>'); });
     },
     projects: function () {
-      print('<span class="g">phishhawk</span>&nbsp;&nbsp;live phishing triage &nbsp;<a href="https://phishhawk.vinitrami.co.in" target="_blank" rel="noopener noreferrer">phishhawk.vinitrami.co.in</a>');
-      print('<span class="g">intelpulse</span> threat-intel verdicts <a href="https://vinitrami-soc.github.io/intelpulse/" target="_blank" rel="noopener noreferrer">demo</a> · <a href="https://github.com/vinitrami-Soc/intelpulse" target="_blank" rel="noopener noreferrer">github</a>');
-      print('<span class="g">owltriage</span>&nbsp;&nbsp;offline log triage &nbsp;&nbsp;&nbsp;<a href="https://github.com/vinitrami-Soc/owltriage" target="_blank" rel="noopener noreferrer">github</a>');
+      table([['<span class="g">phishhawk</span>', 'live phishing triage · <a href="https://phishhawk.vinitrami.co.in" target="_blank" rel="noopener noreferrer">phishhawk.vinitrami.co.in</a>'],
+             ['<span class="g">intelpulse</span>', 'threat-intel verdicts · <a href="https://vinitrami-soc.github.io/intelpulse/" target="_blank" rel="noopener noreferrer">demo</a> · <a href="https://github.com/vinitrami-Soc/intelpulse" target="_blank" rel="noopener noreferrer">github</a>'],
+             ['<span class="g">owltriage</span>', 'offline log triage · <a href="https://github.com/vinitrami-Soc/owltriage" target="_blank" rel="noopener noreferrer">github</a>']], 'tags');
     },
     contact: function () {
-      print('email&nbsp;&nbsp;&nbsp;&nbsp;' + EMAIL);
-      print('linkedin&nbsp;<a href="https://www.linkedin.com/in/vinitrami-002855228" target="_blank" rel="noopener noreferrer">/in/vinitrami-002855228</a>');
-      print('github&nbsp;&nbsp;&nbsp;<a href="https://github.com/vinitrami-Soc" target="_blank" rel="noopener noreferrer">@vinitrami-Soc</a>');
-      print('medium&nbsp;&nbsp;&nbsp;<a href="https://medium.com/@ramivinit" target="_blank" rel="noopener noreferrer">@ramivinit</a>');
+      table([['<span class="d">email</span>', esc(EMAIL)],
+             ['<span class="d">linkedin</span>', '<a href="https://www.linkedin.com/in/vinitrami-002855228" target="_blank" rel="noopener noreferrer">/in/vinitrami-002855228</a>'],
+             ['<span class="d">github</span>', '<a href="https://github.com/vinitrami-Soc" target="_blank" rel="noopener noreferrer">@vinitrami-Soc</a>'],
+             ['<span class="d">medium</span>', '<a href="https://medium.com/@ramivinit" target="_blank" rel="noopener noreferrer">@ramivinit</a>']], 'tags');
     },
     cv: function () { print('<span class="a">Access request detected.</span> Opening the security check…'); setTimeout(function () { closeTerm(); cvAsk(); }, 600); },
     nmap: function () {
-      ['<span class="d">Starting Nmap 7.95 against vinitrami.co.in</span>', 'PORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATE&nbsp;&nbsp;SERVICE',
-       '22/tcp&nbsp;&nbsp;&nbsp;<span class="r">closed</span> ssh <span class="d">(nice try)</span>', '443/tcp&nbsp;&nbsp;<span class="g">open</span>&nbsp;&nbsp;&nbsp;portfolio',
-       '1337/tcp&nbsp;<span class="g">open</span>&nbsp;&nbsp;&nbsp;ctf-mode', '8080/tcp&nbsp;<span class="g">open</span>&nbsp;&nbsp;&nbsp;ambition', '<span class="d">Nmap done: 1 analyst up</span>']
+      ['<span class="d">Starting Nmap 7.95 against vinitrami.co.in</span>', '<div class="kv ports"><span>PORT</span><span>STATE</span><span>SERVICE</span></div>',
+       '<div class="kv ports"><span>22/tcp</span><span class="r">closed</span><span>ssh <span class="d">(nice try)</span></span></div>',
+       '<div class="kv ports"><span>443/tcp</span><span class="g">open</span><span>portfolio</span></div>',
+       '<div class="kv ports"><span>1337/tcp</span><span class="g">open</span><span>ctf-mode</span></div>',
+       '<div class="kv ports"><span>8080/tcp</span><span class="g">open</span><span>ambition</span></div>', '<span class="d">Nmap done: 1 analyst up</span>']
         .forEach(function (l, k) { setTimeout(function () { print(l); }, reduce ? 0 : k * 180); });
     },
     phish: function () {
-      ['<span class="d">$ phishhawk scan samples/sample_quishing.eml --offline</span>', 'Auth&nbsp;&nbsp;&nbsp;&nbsp;: spf=pass dkim=pass dmarc=pass',
-       'Lookalike: example-corp-mfa[.]top <span class="a">combosquat of YOUR domain</span>', 'QR code&nbsp;: MFA_Enrolment_Notice.pdf -> hxxps://example-corp-mfa[.]top/enrol',
+      ['<span class="d">$ phishhawk scan samples/sample_quishing.eml --offline</span>', '<div class="kv tags"><span class="d">Auth</span><span>spf=pass dkim=pass dmarc=pass</span></div>',
+       '<div class="kv tags"><span class="d">Lookalike</span><span>example-corp-mfa[.]top <span class="a">combosquat of YOUR domain</span></span></div>',
+       '<div class="kv tags"><span class="d">QR code</span><span>MFA_Enrolment_Notice.pdf -&gt; hxxps://example-corp-mfa[.]top/enrol</span></div>',
        '<span class="r">[high]</span> sender domain is a lookalike', '<span class="r">[high]</span> QR code links to a lookalike', '<span class="a">Verdict: LIKELY PHISHING (risk score 8)</span>']
         .forEach(function (l, k) { setTimeout(function () { print(l); }, reduce ? 0 : k * 220); });
     },
     matrix: function () { print('<span class="g">Wake up, recruiter…</span>'); matrixBurst(); },
-    ls: function () { print('about.md&nbsp;&nbsp;experience.log&nbsp;&nbsp;tools/&nbsp;&nbsp;credentials.db&nbsp;&nbsp;<span class="d">flag.txt</span>'); },
+    ls: function () { print('<span class="ls">about.md</span> <span class="ls">experience.log</span> <span class="ls">tools/</span> <span class="ls">credentials.db</span> <span class="ls d">flag.txt</span>'); },
     date: function () { print(esc(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(new Date()))); },
     history: function () { hist.forEach(function (h, k) { print('<span class="d">' + (k + 1) + '</span>&nbsp;&nbsp;' + esc(h)); }); },
     clear: snap, snap: snap,
@@ -421,7 +429,12 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
     if (e.key === 'ArrowUp') { if (hist.length) { hp = hp < 0 ? hist.length - 1 : Math.max(0, hp - 1); input.value = hist[hp]; } e.preventDefault(); return; }
     if (e.key === 'ArrowDown') { if (hp >= 0) { hp++; if (hp >= hist.length) { hp = -1; input.value = ''; } else input.value = hist[hp]; } e.preventDefault(); return; }
     if (e.key !== 'Enter' || snapping) return;
-    var raw = input.value.trim(); input.value = ''; if (!raw) return;
+    e.preventDefault(); var raw = input.value.trim(); input.value = ''; run(raw);
+  });
+  $$('.quick [data-cmd]').forEach(function (b) { b.addEventListener('click', function () { run(b.dataset.cmd); }); });
+  var quick = $('.quick'); quick.addEventListener('scroll', function () { quick.classList.toggle('end', quick.scrollLeft + quick.clientWidth >= quick.scrollWidth - 4); }, { passive: true });
+  function run(raw) {
+    if (!raw || snapping) return;
     hist.push(raw); hp = -1;
     print('<span class="g">guest@vinit:~$</span> ' + esc(raw));
     var low = raw.toLowerCase(), p = low.split(/\s+/);
@@ -432,7 +445,17 @@ var WORLD = {"step":1,"lat0":84,"lat1":-78,"cols":360,"rows":162,"names":["Green
     if (p[0] === 'hack' || p[0] === 'hacker') return print('<span class="a">Access denied.</span> <span class="d">Nice try. Catching hackers is literally my job.</span>');
     if (p[0] === 'echo') return print(esc(raw.slice(5)));
     print('<span class="r">command not found:</span> ' + esc(p[0]) + ' <span class="d">try</span> <span class="g">help</span>');
-  });
+  }
+  /* phones: keep the terminal inside the visible area when the on-screen keyboard opens */
+  if (window.visualViewport) {
+    var vv = window.visualViewport;
+    var fitTerm = function () {
+      if (!phone.matches) { tScrim.style.removeProperty('top'); tScrim.style.removeProperty('height'); return; }
+      tScrim.style.top = vv.offsetTop + 'px'; tScrim.style.height = vv.height + 'px';
+      out.scrollTop = out.scrollHeight;
+    };
+    vv.addEventListener('resize', fitTerm); vv.addEventListener('scroll', fitTerm); fitTerm();
+  }
 
   /* world map: one dot per degree, each country in its flag's colours. Three countries have stories, the rest have opinions. */
   var M = WORLD, cells = new Uint16Array(M.cols * M.rows);
