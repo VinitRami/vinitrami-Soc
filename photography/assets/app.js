@@ -6,7 +6,7 @@
   var hero = document.getElementById('hero');
   var $ = function (id) { return document.getElementById(id); };
   var ICONS = {"speaker-high": "<svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" fill=\"currentColor\"><path d=\"M154.64,26.61a6,6,0,0,0-6.32.65L77.94,82H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V32A6,6,0,0,0,154.64,26.61ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l60-46.66Zm50.53-108.85a38,38,0,0,1,0,50.24,6,6,0,1,1-9-7.94,26,26,0,0,0,0-34.37,6,6,0,0,1,9-7.93ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z\"/></svg>", "speaker-slash": "<svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" fill=\"currentColor\"><path d=\"M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z\"/></svg>", "camera": "<svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" fill=\"currentColor\"><path d=\"M208,58H179.21L165,36.67A6,6,0,0,0,160,34H96a6,6,0,0,0-5,2.67L76.78,58H48A22,22,0,0,0,26,80V192a22,22,0,0,0,22,22H208a22,22,0,0,0,22-22V80A22,22,0,0,0,208,58Zm10,134a10,10,0,0,1-10,10H48a10,10,0,0,1-10-10V80A10,10,0,0,1,48,70H80a6,6,0,0,0,5-2.67L99.21,46h57.57L171,67.33A6,6,0,0,0,176,70h32a10,10,0,0,1,10,10ZM128,90a42,42,0,1,0,42,42A42,42,0,0,0,128,90Zm0,72a30,30,0,1,1,30-30A30,30,0,0,1,128,162Z\"/></svg>", "device-mobile-camera": "<svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" fill=\"currentColor\"><path d=\"M176,18H80A22,22,0,0,0,58,40V216a22,22,0,0,0,22,22h96a22,22,0,0,0,22-22V40A22,22,0,0,0,176,18Zm10,198a10,10,0,0,1-10,10H80a10,10,0,0,1-10-10V40A10,10,0,0,1,80,30h96a10,10,0,0,1,10,10ZM138,60a10,10,0,1,1-10-10A10,10,0,0,1,138,60Z\"/></svg>"};
-  var DIAL_ICONS = {"lightning-slash": "M56.88,31.93A12,12,0,1,0,39.12,48.07L75.9,88.52,39.23,127.81a12,12,0,0,0,4.31,19.33l51.18,20.47L84.13,238.22a12,12,0,0,0,20.64,10l58.9-63.11,35.45,39a12,12,0,0,0,17.76-16.14ZM113.6,203.55l6.27-41.77a12,12,0,0,0-7.41-12.92L68.74,131.37l23.35-25,55.38,60.92ZM111.41,68.06a12,12,0,0,1-.59-17L151.23,7.81a12,12,0,0,1,20.64,10L161.28,88.39l51.18,20.47a12,12,0,0,1,4.31,19.33l-16.82,18a12,12,0,0,1-17.55-16.38l4.86-5.21-43.72-17.49a12,12,0,0,1-7.41-12.92l6.27-41.77-14,15A12,12,0,0,1,111.41,68.06Z", "user": "M234.38,210a123.36,123.36,0,0,0-60.78-53.23,76,76,0,1,0-91.2,0A123.36,123.36,0,0,0,21.62,210a12,12,0,1,0,20.77,12c18.12-31.32,50.12-50,85.61-50s67.49,18.69,85.61,50a12,12,0,0,0,20.77-12ZM76,96a52,52,0,1,1,52,52A52.06,52.06,0,0,1,76,96Z", "mountains": "M160,80a32,32,0,1,0-32-32A32,32,0,0,0,160,80Zm0-40a8,8,0,1,1-8,8A8,8,0,0,1,160,40Zm94.32,153.88L199.76,101.8A19.85,19.85,0,0,0,182.55,92h0a19.83,19.83,0,0,0-17.2,9.8l-18.7,31.55-37.42-63.5a20,20,0,0,0-34.46,0L1.66,193.91A12,12,0,0,0,12,212H244a12,12,0,0,0,10.32-18.12ZM92,87.87,108.57,116H75.43ZM33,188l28.28-48h61.44L151,188Zm145.86,0L160.56,157l22-37.1L222.94,188Z", "baby": "M92,144a16,16,0,1,1,16-16A16,16,0,0,1,92,144Zm72-32a16,16,0,1,0,16,16A16,16,0,0,0,164,112Zm-14.4,49.85a41,41,0,0,1-43.2,0,12,12,0,1,0-12.8,20.3,65,65,0,0,0,68.8,0,12,12,0,1,0-12.8-20.3ZM236,128A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84.08,84.08,0,0,0-82-83.95c-9.46,14.2-10,27.28-10,28A8,8,0,0,0,136,72a12,12,0,0,1,24,0,32,32,0,0,1-64,0c0-.63.1-10.48,5-23.52A84,84,0,1,0,212,128Z", "person-simple-run": "M152,92a36,36,0,1,0-36-36A36,36,0,0,0,152,92Zm0-48a12,12,0,1,1-12,12A12,12,0,0,1,152,44Zm76,93.4a12,12,0,0,1-7,10.91,66,66,0,0,1-21.47,3.78c-14,0-34.25-3.82-59.77-19a177,177,0,0,1-10.27,21C153.12,162.83,188,183.8,188,232a12,12,0,0,1-24,0c0-18.69-6.95-33.06-21.26-43.94-9.16-7-19.55-11-27.43-13.34-.81,1-1.64,2-2.5,2.95-20,22.87-44.82,34.76-72.25,34.76a97.33,97.33,0,0,1-9.75-.49,12,12,0,1,1,2.39-23.88c52.3,5.22,77.48-45.92,85.79-67.75C84.8,102.46,63.74,118.78,63.51,119a12,12,0,0,1-15-18.72C50.08,99,88,69.44,142.75,106.62c43.1,29.31,68.1,19.92,68.5,19.76a12,12,0,0,1,16.75,11Z", "flower": "M215.64,128a44,44,0,0,0-43.82-75.9,44,44,0,0,0-87.64,0A44,44,0,0,0,40.36,128a44,44,0,0,0,43.82,75.89,44,44,0,0,0,87.64,0A44,44,0,0,0,215.64,128ZM108,128a20,20,0,1,1,20,20A20,20,0,0,1,108,128Zm72.35-53.32a20,20,0,1,1,20,34.64c-2.65,1.53-10.52,4.88-30.1,6.42a44.08,44.08,0,0,0-10.52-18.18C170.86,81.36,177.7,76.21,180.35,74.68ZM128,36a20,20,0,0,1,20,20c0,3.06-1,11.55-9.49,29.28a43.79,43.79,0,0,0-21,0C109,67.55,108,59.06,108,56A20,20,0,0,1,128,36ZM48.33,82a20,20,0,0,1,27.32-7.32c2.65,1.53,9.49,6.68,20.62,22.88a44.08,44.08,0,0,0-10.52,18.18c-19.58-1.54-27.45-4.89-30.1-6.42A20,20,0,0,1,48.33,82Zm27.32,99.32a20,20,0,1,1-20-34.64c2.65-1.53,10.52-4.88,30.1-6.42a44.08,44.08,0,0,0,10.52,18.18C85.14,174.64,78.3,179.79,75.65,181.32ZM128,220a20,20,0,0,1-20-20c0-3.06,1-11.55,9.49-29.28a43.79,43.79,0,0,0,21,0C147,188.45,148,196.94,148,200A20,20,0,0,1,128,220Zm79.67-46a20,20,0,0,1-27.32,7.32c-2.65-1.53-9.49-6.68-20.62-22.88a44.08,44.08,0,0,0,10.52-18.18c19.58,1.54,27.45,4.89,30.1,6.42A20,20,0,0,1,207.67,174Z", "moon-stars": "M244,96a12,12,0,0,1-12,12H220v12a12,12,0,0,1-24,0V108H184a12,12,0,0,1,0-24h12V72a12,12,0,0,1,24,0V84h12A12,12,0,0,1,244,96ZM144,60h4v4a12,12,0,0,0,24,0V60h4a12,12,0,0,0,0-24h-4V32a12,12,0,0,0-24,0v4h-4a12,12,0,0,0,0,24Zm75.81,90.38A12,12,0,0,1,222,162.3,100,100,0,1,1,93.7,34a12,12,0,0,1,15.89,13.6A85.12,85.12,0,0,0,108,64a84.09,84.09,0,0,0,84,84,85.22,85.22,0,0,0,16.37-1.59A12,12,0,0,1,219.81,150.38ZM190,172A108.13,108.13,0,0,1,84,66,76,76,0,1,0,190,172Z"};
+  var DIAL_ICONS = {"lightning-slash": "M56.88,31.93A12,12,0,1,0,39.12,48.07L75.9,88.52,39.23,127.81a12,12,0,0,0,4.31,19.33l51.18,20.47L84.13,238.22a12,12,0,0,0,20.64,10l58.9-63.11,35.45,39a12,12,0,0,0,17.76-16.14ZM113.6,203.55l6.27-41.77a12,12,0,0,0-7.41-12.92L68.74,131.37l23.35-25,55.38,60.92ZM111.41,68.06a12,12,0,0,1-.59-17L151.23,7.81a12,12,0,0,1,20.64,10L161.28,88.39l51.18,20.47a12,12,0,0,1,4.31,19.33l-16.82,18a12,12,0,0,1-17.55-16.38l4.86-5.21-43.72-17.49a12,12,0,0,1-7.41-12.92l6.27-41.77-14,15A12,12,0,0,1,111.41,68.06Z", "user": "M234.38,210a123.36,123.36,0,0,0-60.78-53.23,76,76,0,1,0-91.2,0A123.36,123.36,0,0,0,21.62,210a12,12,0,1,0,20.77,12c18.12-31.32,50.12-50,85.61-50s67.49,18.69,85.61,50a12,12,0,0,0,20.77-12ZM76,96a52,52,0,1,1,52,52A52.06,52.06,0,0,1,76,96Z", "mountains": "M160,80a32,32,0,1,0-32-32A32,32,0,0,0,160,80Zm0-40a8,8,0,1,1-8,8A8,8,0,0,1,160,40Zm94.32,153.88L199.76,101.8A19.85,19.85,0,0,0,182.55,92h0a19.83,19.83,0,0,0-17.2,9.8l-18.7,31.55-37.42-63.5a20,20,0,0,0-34.46,0L1.66,193.91A12,12,0,0,0,12,212H244a12,12,0,0,0,10.32-18.12ZM92,87.87,108.57,116H75.43ZM33,188l28.28-48h61.44L151,188Zm145.86,0L160.56,157l22-37.1L222.94,188Z", "baby": "M92,144a16,16,0,1,1,16-16A16,16,0,0,1,92,144Zm72-32a16,16,0,1,0,16,16A16,16,0,0,0,164,112Zm-14.4,49.85a41,41,0,0,1-43.2,0,12,12,0,1,0-12.8,20.3,65,65,0,0,0,68.8,0,12,12,0,1,0-12.8-20.3ZM236,128A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84.08,84.08,0,0,0-82-83.95c-9.46,14.2-10,27.28-10,28A8,8,0,0,0,136,72a12,12,0,0,1,24,0,32,32,0,0,1-64,0c0-.63.1-10.48,5-23.52A84,84,0,1,0,212,128Z", "person-simple-run": "M152,92a36,36,0,1,0-36-36A36,36,0,0,0,152,92Zm0-48a12,12,0,1,1-12,12A12,12,0,0,1,152,44Zm76,93.4a12,12,0,0,1-7,10.91,66,66,0,0,1-21.47,3.78c-14,0-34.25-3.82-59.77-19a177,177,0,0,1-10.27,21C153.12,162.83,188,183.8,188,232a12,12,0,0,1-24,0c0-18.69-6.95-33.06-21.26-43.94-9.16-7-19.55-11-27.43-13.34-.81,1-1.64,2-2.5,2.95-20,22.87-44.82,34.76-72.25,34.76a97.33,97.33,0,0,1-9.75-.49,12,12,0,1,1,2.39-23.88c52.3,5.22,77.48-45.92,85.79-67.75C84.8,102.46,63.74,118.78,63.51,119a12,12,0,0,1-15-18.72C50.08,99,88,69.44,142.75,106.62c43.1,29.31,68.1,19.92,68.5,19.76a12,12,0,0,1,16.75,11Z", "flower": "M215.64,128a44,44,0,0,0-43.82-75.9,44,44,0,0,0-87.64,0A44,44,0,0,0,40.36,128a44,44,0,0,0,43.82,75.89,44,44,0,0,0,87.64,0A44,44,0,0,0,215.64,128ZM108,128a20,20,0,1,1,20,20A20,20,0,0,1,108,128Zm72.35-53.32a20,20,0,1,1,20,34.64c-2.65,1.53-10.52,4.88-30.1,6.42a44.08,44.08,0,0,0-10.52-18.18C170.86,81.36,177.7,76.21,180.35,74.68ZM128,36a20,20,0,0,1,20,20c0,3.06-1,11.55-9.49,29.28a43.79,43.79,0,0,0-21,0C109,67.55,108,59.06,108,56A20,20,0,0,1,128,36ZM48.33,82a20,20,0,0,1,27.32-7.32c2.65,1.53,9.49,6.68,20.62,22.88a44.08,44.08,0,0,0-10.52,18.18c-19.58-1.54-27.45-4.89-30.1-6.42A20,20,0,0,1,48.33,82Zm27.32,99.32a20,20,0,1,1-20-34.64c2.65-1.53,10.52-4.88,30.1-6.42a44.08,44.08,0,0,0,10.52,18.18C85.14,174.64,78.3,179.79,75.65,181.32ZM128,220a20,20,0,0,1-20-20c0-3.06,1-11.55,9.49-29.28a43.79,43.79,0,0,0,21,0C147,188.45,148,196.94,148,200A20,20,0,0,1,128,220Zm79.67-46a20,20,0,0,1-27.32,7.32c-2.65-1.53-9.49-6.68-20.62-22.88a44.08,44.08,0,0,0,10.52-18.18c19.58,1.54,27.45,4.89,30.1,6.42A20,20,0,0,1,207.67,174Z", "moon-stars": "M244,96a12,12,0,0,1-12,12H220v12a12,12,0,0,1-24,0V108H184a12,12,0,0,1,0-24h12V72a12,12,0,0,1,24,0V84h12A12,12,0,0,1,244,96ZM144,60h4v4a12,12,0,0,0,24,0V60h4a12,12,0,0,0,0-24h-4V32a12,12,0,0,0-24,0v4h-4a12,12,0,0,0,0,24Zm75.81,90.38A12,12,0,0,1,222,162.3,100,100,0,1,1,93.7,34a12,12,0,0,1,15.89,13.6A85.12,85.12,0,0,0,108,64a84.09,84.09,0,0,0,84,84,85.22,85.22,0,0,0,16.37-1.59A12,12,0,0,1,219.81,150.38ZM190,172A108.13,108.13,0,0,1,84,66,76,76,0,1,0,190,172Z", "trash": "M216,48H180V36A28,28,0,0,0,152,8H104A28,28,0,0,0,76,36V48H40a12,12,0,0,0,0,24h4V208a20,20,0,0,0,20,20H192a20,20,0,0,0,20-20V72h4a12,12,0,0,0,0-24ZM100,36a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4V48H100Zm88,168H68V72H188ZM116,104v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Zm48,0v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Z", "play": "M234.49,111.07,90.41,22.94A20,20,0,0,0,60,39.87V216.13a20,20,0,0,0,30.41,16.93l144.08-88.13a19.82,19.82,0,0,0,0-33.86ZM84,208.85V47.15L216.16,128Z"};
 
   var P = {
     'london-lamps': ['Three lamps and a clock tower', 'Galaxy S23', '20251028_150732.JPG', '1/833  F2.4  ISO 32'],
@@ -368,12 +368,18 @@
     var m = new T.MeshStandardMaterial({ map: tex, transparent: true, roughness: rough || 0.5, metalness: 0, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4 });
     var me = new T.Mesh(new T.PlaneGeometry(w, h), m); me.renderOrder = 2; return me;
   }
-  function label(text, w, h, px, weight, family, color, italic) {
-    return decal(textTex(Math.round(w * 160), Math.round(h * 160), function (g, cw, ch) {
+  function label(text, w, h, px, weight, family, color, italic, spacing) {
+    var Q = 3; /* texture density: three times the old 160 px per unit, so print stays sharp in close views */
+    return decal(textTex(Math.round(w * 160 * Q), Math.round(h * 160 * Q), function (g, cw, ch) {
       g.fillStyle = color || '#f2f2f2'; g.textAlign = 'center'; g.textBaseline = 'middle';
-      g.font = (italic ? 'italic ' : '') + (weight || 600) + ' ' + px + 'px ' + (family || 'Geist, system-ui, sans-serif');
+      g.font = (italic ? 'italic ' : '') + (weight || 600) + ' ' + (px * Q) + 'px ' + (family || 'Geist, system-ui, sans-serif');
+      if (spacing && 'letterSpacing' in g) g.letterSpacing = (spacing * Q) + 'px';
       g.fillText(text, cw / 2, ch / 2);
     }), w, h);
+  }
+  /* a Phosphor icon printed as a decal */
+  function iconLabel(d, size, color) {
+    return decal(textTex(384, 384, function (g) { g.fillStyle = color || '#e9e9e9'; g.translate(48, 48); g.scale(288 / 256, 288 / 256); g.fill(new Path2D(d)); }), size, size);
   }
 
   var MX = 0.55, MY = -0.3, FZ = 2.4, BZ = -2.4, LENS_BASE = new T.Vector3(MX, MY, FZ + 0.22);
@@ -469,7 +475,17 @@
   function blinkTo() { if (reduce) { drawLCD(); return; } lcd.mode = 'black'; drawLCD(); lcdSeq([[80, 'photo']]); }
 
   /* ---------- the mode dial face ---------- */
-  function drawDialFace(c, w) {
+  function arcText(c, txt, a, R, spacing) {
+    var ws = [], tot = 0;
+    for (var i = 0; i < txt.length; i++) { ws.push(c.measureText(txt[i]).width); tot += ws[i] + (i ? spacing : 0); }
+    var s = -tot / 2;
+    for (var j = 0; j < txt.length; j++) {
+      var an = a + (s + ws[j] / 2) / R; s += ws[j] + spacing;
+      c.save(); c.translate(512 + Math.cos(an) * R, 512 + Math.sin(an) * R); c.rotate(an + Math.PI / 2); c.fillText(txt[j], 0, 0); c.restore();
+    }
+  }
+  function drawDialFace(c, W) {
+    c.save(); c.scale(W / 1024, W / 1024); var w = 1024;
     var gr = c.createRadialGradient(w / 2, w / 2, 0, w / 2, w / 2, w / 2);
     gr.addColorStop(0, '#1a1a1c'); gr.addColorStop(1, '#0d0d0e'); c.fillStyle = gr; c.fillRect(0, 0, w, w);
     c.strokeStyle = 'rgba(255,255,255,0.035)'; for (var r = 20; r < w / 2; r += 6) { c.beginPath(); c.arc(w / 2, w / 2, r, 0, Math.PI * 2); c.stroke(); }
@@ -478,10 +494,16 @@
       var m = MODES[k], a = -Math.PI / 2 + k * STEP;
       c.save(); c.translate(w / 2 + Math.cos(a) * R, w / 2 + Math.sin(a) * R); c.rotate(a + Math.PI / 2);
       c.fillStyle = k < 2 ? '#43b06b' : '#f1f1f1';
-      if (m.mark) { var fs = m.mark.length > 4 ? 50 : m.mark.length > 1 ? 62 : 96; c.font = '600 ' + fs + 'px Geist, system-ui, sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText(m.mark, 0, 0); }
+      if (m.mark && m.mark.length > 4) { c.restore(); c.save(); c.fillStyle = '#f1f1f1'; c.font = '600 33px Geist, system-ui, sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle'; arcText(c, m.mark, a, R, 3); }
+      else if (m.mark) { var fs = m.mark.length > 1 ? 62 : 96; c.font = '600 ' + fs + 'px Geist, system-ui, sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText(m.mark, 0, 0); }
       else if (DIAL_ICONS[m.icon]) { c.scale(0.36, 0.36); c.translate(-128, -128); c.fill(new Path2D(DIAL_ICONS[m.icon])); }
       c.restore();
     }
+    /* fine ticks between the positions and a printed rim, like the real dial */
+    c.strokeStyle = 'rgba(255,255,255,0.32)'; c.lineWidth = 2.2;
+    for (var t2 = 0; t2 < N; t2++) { var ta = -Math.PI / 2 + (t2 + 0.5) * STEP; c.beginPath(); c.moveTo(w / 2 + Math.cos(ta) * w * 0.452, w / 2 + Math.sin(ta) * w * 0.452); c.lineTo(w / 2 + Math.cos(ta) * w * 0.478, w / 2 + Math.sin(ta) * w * 0.478); c.stroke(); }
+    c.strokeStyle = 'rgba(255,255,255,0.12)'; c.lineWidth = 1.5; c.beginPath(); c.arc(w / 2, w / 2, w * 0.488, 0, Math.PI * 2); c.stroke();
+    c.restore();
   }
 
   /* ---------- printed details, screen, wordmark: added on top of either model ---------- */
@@ -501,20 +523,67 @@
       for (var i = 0; i < txt.length; i++) { var an = -Math.PI * 0.95 + i * 0.052; c.save(); c.translate(w / 2 + Math.cos(an) * R, w / 2 + Math.sin(an) * R); c.rotate(an + Math.PI / 2); c.fillText(txt[i], 0, 0); c.restore(); }
     });
     var ring = add(new T.RingGeometry(2.28, 2.67, 128), PM({ color: 0xffffff, map: ringTex, roughness: 0.45, polygonOffset: true, polygonOffsetFactor: -2 }), 0, 6.506, 0, a.innerLocal, 'ringText'); ring.rotation.x = -Math.PI / 2;
-    var face = add(new T.CircleGeometry(1.16, 96), PM({ color: 0xffffff, map: textTex(1024, 1024, drawDialFace), roughness: 0.55, clearcoat: 0.25 }), 0, 0.74, 0, a.dial, 'dialFace'); face.rotation.x = -Math.PI / 2;
+    var face = add(new T.CircleGeometry(1.16, 96), PM({ color: 0xffffff, map: textTex(2048, 2048, drawDialFace), roughness: 0.55, clearcoat: 0.25 }), 0, 0.74, 0, a.dial, 'dialFace'); face.rotation.x = -Math.PI / 2;
     var idxMark = new T.Mesh(new T.CircleGeometry(0.11, 3), new T.MeshStandardMaterial({ color: 0xf2f2f2, roughness: 0.5, polygonOffset: true, polygonOffsetFactor: -4 }));
     idxMark.rotation.x = -Math.PI / 2; idxMark.rotation.z = -Math.PI / 2; idxMark.position.set(-3.75, 3.405, -1.9); model.add(idxMark);
     var screen = new T.Mesh(new T.PlaneGeometry(7.2, 4.8), new T.MeshBasicMaterial({ map: lcdTex, toneMapped: false }));
     screen.position.set(1.35, -0.6, BZ - 0.476); screen.rotation.y = Math.PI; screen.name = 'screen'; screen.userData.part = 'screen'; model.add(screen);
     var glassM = PM({ color: 0x000000, roughness: 0.06, clearcoat: 1, transparent: true, blending: T.AdditiveBlending, depthWrite: false, envMapIntensity: 0.55 });
     var sg = new T.Mesh(new T.PlaneGeometry(7.5, 5.1), glassM); sg.position.set(1.35, -0.6, BZ - 0.48); sg.rotation.y = Math.PI; sg.userData.part = 'screen'; model.add(sg);
+    var sheenTex = textTex(1024, 696, function (c, w, h) {
+      var g1 = c.createLinearGradient(0, 0, w * 0.75, h);
+      g1.addColorStop(0, 'rgba(255,255,255,0.075)'); g1.addColorStop(0.38, 'rgba(255,255,255,0.018)'); g1.addColorStop(0.6, 'rgba(255,255,255,0)'); g1.addColorStop(1, 'rgba(255,255,255,0.012)');
+      c.fillStyle = g1; c.fillRect(0, 0, w, h);
+      c.save(); c.translate(w * 0.34, -40); c.rotate(0.62);
+      var g2 = c.createLinearGradient(-70, 0, 70, 0); g2.addColorStop(0, 'rgba(255,255,255,0)'); g2.addColorStop(0.5, 'rgba(255,255,255,0.05)'); g2.addColorStop(1, 'rgba(255,255,255,0)');
+      c.fillStyle = g2; c.fillRect(-70, 0, 140, h * 2); c.fillRect(110, 0, 30, h * 2); c.restore();
+      c.strokeStyle = 'rgba(255,255,255,0.06)'; c.lineWidth = 2; c.strokeRect(20, 20, w - 40, h - 40);
+      var g3 = c.createLinearGradient(0, 0, 0, 14); g3.addColorStop(0, 'rgba(255,255,255,0.10)'); g3.addColorStop(1, 'rgba(255,255,255,0)'); c.fillStyle = g3; c.fillRect(6, 4, w - 12, 14);
+    });
+    var sheen = new T.Mesh(new T.PlaneGeometry(7.5, 5.1), new T.MeshBasicMaterial({ map: sheenTex, transparent: true, blending: T.AdditiveBlending, depthWrite: false, toneMapped: false }));
+    sheen.position.set(1.35, -0.6, BZ - 0.483); sheen.rotation.y = Math.PI; sheen.renderOrder = 3; sheen.userData.part = 'screen'; model.add(sheen);
     var word = label('Nikon', 2.4, 0.8, 92, 700, 'Geist, system-ui, sans-serif', '#f4f4f4', true); word.position.set(MX, 3.72, FZ + 0.006); model.add(word);
     var mdl = label('D5200', 1.1, 0.36, 36, 600); mdl.position.set(4.85, 2.55, FZ + 0.006); model.add(mdl);
-    [[-3.3, 2.55, 'AE-L', 0.45], [4.4, 2.75, 'MENU', 0.44], [5.4, 2.75, '▶', 0.44], [-4.65, -2.5, 'i', -0.42], [-3.3, -2.5, 'DEL', -0.42]].forEach(function (b) {
-      var lb = label(b[2], 0.9, 0.26, 30, 600); lb.position.set(b[0], b[1] + b[3], BZ - 0.003); lb.rotation.y = Math.PI; model.add(lb);
+    var BTN = BZ - 0.163; /* the face of the small back buttons */
+    [[-3.3, 2.55, 'AE-L', 20, 1], [4.4, 2.75, 'MENU', 19, 1], [-4.65, -2.5, 'i', 46, 0]].forEach(function (b) {
+      var lb = label(b[2], 0.5, 0.3, b[3], 700, null, '#e9e9e9', false, b[4]); lb.position.set(b[0], b[1], BTN); lb.rotation.y = Math.PI; model.add(lb);
+    });
+    [[5.4, 2.75, 'play', 0.24], [-3.3, -2.5, 'trash', 0.3]].forEach(function (b) {
+      if (!DIAL_ICONS[b[2]]) return; var ic = iconLabel(DIAL_ICONS[b[2]], b[3]); ic.position.set(b[0], b[1], BTN); ic.rotation.y = Math.PI; model.add(ic);
     });
     var okl = label('OK', 0.6, 0.3, 40, 600); okl.userData.part = 'ok'; okl.position.set(-3.95, -0.55, BZ - 0.225); okl.rotation.y = Math.PI; model.add(okl);
-    var rl = label('REC', 0.6, 0.2, 28, 600, null, '#e8e8e8'); rl.rotation.x = -Math.PI / 2; rl.position.set(-3.4, 3.41, 2.32); model.add(rl);
+    var rl = label('REC', 0.6, 0.2, 28, 600, null, '#e8e8e8', false, 1); rl.rotation.x = -Math.PI / 2; rl.position.set(-3.4, 3.41, 2.32); model.add(rl);
+    /* attach a detail to a moving part, given its place in model space, so it travels with the press */
+    function attach(parent, mesh, x, y, z, rx) {
+      model.updateMatrixWorld(true);
+      var wp = model.localToWorld(V3(x, y, z)); parent.worldToLocal(wp); mesh.position.copy(wp);
+      var pq = new T.Quaternion(), mq = new T.Quaternion(); parent.getWorldQuaternion(pq); model.getWorldQuaternion(mq);
+      mesh.quaternion.copy(pq.invert().multiply(mq).multiply(new T.Quaternion().setFromEuler(new T.Euler(rx || 0, 0, 0)))); parent.add(mesh); return mesh;
+    }
+    var grooves = function (base, line, n) { return function (c, w, h) { c.fillStyle = base; c.fillRect(0, 0, w, h); for (var i = 0; i < n; i++) { c.fillStyle = i % 2 ? line : 'rgba(0,0,0,0.18)'; c.fillRect(0, i * h / n, w, h / n * 0.45); } }; };
+    if (NODE.shutterBtn) {
+      /* shutter release: a satin black top with fine concentric machining and a soft dome highlight */
+      var stTex = textTex(512, 512, function (c, w) {
+        var gr2 = c.createRadialGradient(w * 0.42, w * 0.38, 0, w / 2, w / 2, w / 2); gr2.addColorStop(0, '#3a3a3d'); gr2.addColorStop(0.65, '#222225'); gr2.addColorStop(1, '#151517');
+        c.fillStyle = gr2; c.fillRect(0, 0, w, w);
+        for (var r2 = 6; r2 < w / 2; r2 += 4) { c.strokeStyle = r2 % 8 ? 'rgba(255,255,255,0.045)' : 'rgba(0,0,0,0.22)'; c.lineWidth = 1.4; c.beginPath(); c.arc(w / 2, w / 2, r2, 0, Math.PI * 2); c.stroke(); }
+      });
+      attach(NODE.shutterBtn, new T.Mesh(new T.CircleGeometry(0.44, 72), PM({ map: stTex, color: 0xffffff, roughness: 0.36, metalness: 0.25, clearcoat: 0.6, clearcoatRoughness: 0.25, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })), -4.35, 3.4915, 2.9, -Math.PI / 2);
+      /* the power collar: a spun-metal cone over its top, and the white index on the lever */
+      var spun = textTex(32, 512, grooves('#1d1d20', 'rgba(255,255,255,0.07)', 96));
+      var collar = new T.Mesh(new T.LatheGeometry([V2(0.585, 3.407), V2(0.93, 3.387)], 96), PM({ map: spun, color: 0xffffff, metalness: 0.75, roughness: 0.34, clearcoat: 0.35, clearcoatRoughness: 0.3, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }));
+      collar.position.set(-4.35, 0, 2.9); collar.receiveShadow = true; model.add(collar);
+      var lev = new T.Mesh(new T.PlaneGeometry(0.17, 0.035), new T.MeshStandardMaterial({ color: 0xf2f2f2, roughness: 0.5, polygonOffset: true, polygonOffsetFactor: -4 }));
+      lev.rotation.x = -Math.PI / 2; lev.position.set(-4.35 - 0.985, 3.356, 2.9); model.add(lev);
+    }
+    if (NODE.recBtn && NODE.recMat) {
+      /* REC: a glossy domed red cap in a thin black bezel */
+      var rm = NODE.recMat; rm.color.setHex(0xa3150e); rm.roughness = 0.18; rm.clearcoat = 1; rm.clearcoatRoughness = 0.06;
+      var dome = new T.Mesh(new T.SphereGeometry(0.469, 48, 12, 0, Math.PI * 2, 0, 0.36), rm); dome.castShadow = true;
+      attach(NODE.recBtn, dome, -3.4, 3.48 + 0.03 - 0.469, 1.9, 0);
+      var bez = new T.Mesh(new T.TorusGeometry(0.192, 0.024, 12, 56), PM({ color: 0x0a0a0b, roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.1 }));
+      bez.rotation.x = Math.PI / 2; bez.position.set(-3.4, 3.405, 1.9); model.add(bez);
+    }
     if (NODE.flashHead) {
       var arm = add(rbox(3.0, 1, 0.42, 0.08), mat.plastic, MX, 5.2, 0.72); arm.scale.y = 0.001; arm.visible = false; NODE.flashArm = arm;
       var fl = new T.PointLight(0xffffff, 0, 60, 2); fl.position.set(0, -0.4, 2.6); NODE.flashHead.add(fl); NODE.flashLight = fl;
@@ -984,6 +1053,10 @@
     /* [name, target value of the edit, range, decimals] */
     var ADJ = [['Exposure', 0.35, 2, 2], ['Contrast', 18, 100, 0], ['Highlights', -42, 100, 0], ['Shadows', 38, 100, 0], ['Whites', 12, 100, 0], ['Blacks', -16, 100, 0], ['Temperature', 6, 100, 0], ['Vibrance', 14, 100, 0], ['Clarity', 10, 100, 0], ['Vignette', -28, 100, 0]];
     var vals = ADJ.map(function () { return 0; });
+    /* what the panel shows trails the values: knobs glide, grow under the pointer and flash when changed */
+    var disp = vals.slice(), graded = null, kr = ADJ.map(function () { return 11; }), flash = ADJ.map(function () { return 0; });
+    var enter0 = -1e9, histT = null, histD = null, lastNow = 0;
+    function eOut(x) { return 1 - Math.pow(1 - x, 3); }
     var state2 = { split: 0.5, k: 0, t0: 0, playing: false, running: false, focus: -1, hover: -1, drag: -1 };
     var photo = { x: 24, y: 76, w: 1400, h: 930 }, PX = 1448, PWd = SW - PX - 24;
     var orig = new Image(), dev = null, dirtyGrade = true, dirty = true;
@@ -1023,7 +1096,7 @@
     function sst(a, b, x) { var t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
     function regrade() {
       if (!dev) return;
-      var real = editImg && editImg.naturalWidth, v = vals.map(function (x, i) { return real ? x - ADJ[i][1] : x; });
+      var real = editImg && editImg.naturalWidth, v = disp.map(function (x, i) { return real ? x - ADJ[i][1] : x; });
       if (real && !dev.edit) { var ec = mkCanvas(dev.rc.w, dev.rc.h), eg = ec.getContext('2d'); eg.drawImage(editImg, 0, 0, dev.rc.w, dev.rc.h); try { dev.edit = eg.getImageData(0, 0, dev.rc.w, dev.rc.h); } catch (e) { dev.edit = null; } }
       var sd = (real && dev.edit ? dev.edit : dev.src).data, od = dev.out.data, n = dev.rc.w * dev.rc.h;
       var t = v[6] / 100, ex = Math.pow(2, v[0] * 0.7), gR = ex * (1 + t * 0.22), gG = ex * (1 + t * 0.03), gB = ex * (1 - t * 0.22);
@@ -1045,7 +1118,7 @@
       }
       dev.gg.putImageData(dev.out, 0, 0);
       dev.grad = colHist(od, dev.rc.w, dev.rc.h, dev.grad);
-      dirtyGrade = false;
+      dirtyGrade = false; graded = disp.slice();
     }
     function rowY(i) { return 300 + i * 68; }
     function fmt(a, v) { var s = a[3] ? v.toFixed(a[3]) : String(Math.round(v)); return (v > 0 ? '+' : '') + (s === '-0' ? '0' : s); }
@@ -1082,14 +1155,21 @@
           H[j] = o + (Gd[NC * B4 + j] - gl);
         }
         var mx = 1; for (var c0 = 0; c0 < 4; c0++) for (var b0 = 1; b0 < HB - 1; b0++) if (H[c0 * HB + b0] > mx) mx = H[c0 * HB + b0];
+        histT = histT || new Float32Array(B4); for (var q = 0; q < B4; q++) histT[q] = Math.min(1, Math.pow(H[q] / mx, 0.6));
+        if (!histD) histD = Float32Array.from(histT);
+        var grow = eOut(Math.max(0, Math.min(1, (lastNow - enter0 - 80) / 820)));
         ['rgba(225,60,60,.5)', 'rgba(60,180,90,.5)', 'rgba(70,110,230,.5)', 'rgba(255,255,255,.3)'].forEach(function (col, c) {
           g.fillStyle = col; g.beginPath(); g.moveTo(px + 22, 260);
-          for (var i = 0; i < HB; i++) g.lineTo(px + 22 + i / (HB - 1) * (pw - 44), 260 - Math.min(1, Math.pow(H[c * HB + i] / mx, 0.6)) * 112);
+          for (var i = 0; i < HB; i++) g.lineTo(px + 22 + i / (HB - 1) * (pw - 44), 260 - histD[c * HB + i] * 112 * grow);
           g.lineTo(px + 22 + pw - 44, 260); g.closePath(); g.globalCompositeOperation = 'lighter'; g.fill(); g.globalCompositeOperation = 'source-over';
         });
       }
       ADJ.forEach(function (a, i) {
-        var y = rowY(i), v = vals[i], on = i === state2.drag || i === state2.hover || i === state2.focus;
+        var y = rowY(i), v = disp[i], on = i === state2.drag || i === state2.hover || i === state2.focus;
+        var e = eOut(Math.max(0, Math.min(1, (lastNow - enter0 - 160 - i * 55) / 560)));
+        if (e <= 0) return;
+        g.save(); g.globalAlpha = e; g.translate((1 - e) * 40, 0);
+        if (flash[i] > 0.01) { g.fillStyle = 'rgba(255,255,255,' + (0.085 * flash[i]).toFixed(3) + ')'; g.fillRect(px + 8, y - 26, pw - 16, 68); }
         if (i === state2.focus) { g.strokeStyle = '#ffffff'; g.lineWidth = 2; g.strokeRect(px + 10, y - 22, pw - 20, 64); }
         g.fillStyle = on ? '#ffffff' : '#c9cbd0'; g.font = '400 21px Geist, system-ui, sans-serif'; g.fillText(a[0], px + 22, y);
         g.textAlign = 'right'; g.font = '500 21px "Geist Mono", ui-monospace, monospace'; g.fillStyle = '#ffffff';
@@ -1097,7 +1177,9 @@
         var tx = px + 22, tw = pw - 44, cx = tx + tw / 2 + (v / a[2]) * (tw / 2);
         g.fillStyle = '#3a3a3e'; g.fillRect(tx, y + 22, tw, 4);
         g.fillStyle = '#e8e8e8'; g.fillRect(Math.min(tx + tw / 2, cx), y + 22, Math.abs(cx - (tx + tw / 2)), 4);
-        g.beginPath(); g.arc(cx, y + 24, on ? 14 : 11, 0, Math.PI * 2); g.fill();
+        if (kr[i] > 12) { g.strokeStyle = 'rgba(255,255,255,' + ((kr[i] - 11) / 4 * 0.35).toFixed(3) + ')'; g.lineWidth = 2; g.beginPath(); g.arc(cx, y + 24, kr[i] + 6, 0, Math.PI * 2); g.stroke(); }
+        g.beginPath(); g.arc(cx, y + 24, kr[i], 0, Math.PI * 2); g.fill();
+        g.restore();
       });
       g.fillStyle = '#0f0f10'; g.fillRect(0, SHh - 60, SW, 60);
       g.fillStyle = '#8b8e95'; g.font = '400 20px "Geist Mono", ui-monospace, monospace'; g.textBaseline = 'middle';
@@ -1125,7 +1207,7 @@
     function setAdj(i, v, sound) {
       var a = ADJ[i], st = a[3] ? 0.05 : 1; v = Math.max(-a[2], Math.min(a[2], Math.round(v / st) * st));
       if (sound && Math.floor(v / (st * 5)) !== Math.floor(vals[i] / (st * 5)) && performance.now() - lastTick > 40) { SND.tick(); lastTick = performance.now(); }
-      vals[i] = v; syncInputs(i); dirtyGrade = true; draw();
+      vals[i] = v; syncInputs(i); flash[i] = 1;
     }
     function fromX(i, x) { var tx = PX + 22, tw = PWd - 44; return (x - (tx + tw / 2)) / (tw / 2) * ADJ[i][2]; }
     cv.addEventListener('pointerdown', function (e) {
@@ -1164,21 +1246,37 @@
     var rafD = 0;
     function loopD(now) {
       rafD = 0; if ($('darkroom').hidden) { state2.running = false; return; }
+      var need = false;
       if (state2.playing) {
         var kk = Math.min(1, (now - state2.t0) / 2600); state2.k = reduce ? 1 : kk;
         state2.split = reduce ? 0.5 : 0.5 + Math.sin(kk * Math.PI * 2) * 0.32 * (1 - kk);
         ADJ.forEach(function (a, i) { var q = Math.max(0, Math.min(1, state2.k * 1.6 - i * 0.07)); vals[i] = a[1] * (1 - Math.pow(1 - q, 3)); });
-        syncInputs(); dirtyGrade = true;
-        $('drSplit').value = Math.round(state2.split * 100); draw();
-        if (state2.k >= 1) { state2.playing = false; ADJ.forEach(function (a, i) { vals[i] = a[1]; }); syncInputs(); dirtyGrade = true; draw(); }
+        syncInputs();
+        $('drSplit').value = Math.round(state2.split * 100); need = true;
+        if (state2.k >= 1) { state2.playing = false; ADJ.forEach(function (a, i) { vals[i] = a[1]; }); syncInputs(); }
       }
+      /* the panel's own motion */
+      /* real elapsed time (capped), so the motion takes the same time on slow and fast screens */
+      var dt = Math.min(0.2, Math.max(0, (now - (lastNow || now)) / 1000)); lastNow = now;
+      var a1 = reduce ? 1 : 1 - Math.exp(-dt * (state2.playing ? 32 : 15)), moving = false, gliding = false;
+      for (var i = 0; i < ADJ.length; i++) {
+        var d = vals[i] - disp[i];
+        if (Math.abs(d) > ADJ[i][2] * 0.0005) { disp[i] += d * a1; moving = gliding = true; } else if (d !== 0) { disp[i] = vals[i]; moving = true; }
+        var tr = (i === state2.drag || i === state2.focus) ? 15 : i === state2.hover ? 13.5 : 11;
+        if (Math.abs(tr - kr[i]) > 0.04) { kr[i] += (tr - kr[i]) * (reduce ? 1 : 1 - Math.exp(-dt * 20)); moving = true; } else kr[i] = tr;
+        if (flash[i] > 0.01) { flash[i] *= Math.exp(-dt * 3.5); moving = true; } else flash[i] = 0;
+      }
+      if (dev && (!graded || disp.some(function (v, j) { return Math.abs(v - graded[j]) > (gliding ? ADJ[j][2] * 0.003 : 0); }))) { dirtyGrade = true; moving = true; }
+      if (histT && histD) { var a2 = reduce ? 1 : 1 - Math.exp(-dt * 12); for (var hj = 0; hj < histD.length; hj++) { var hd = histT[hj] - histD[hj]; if (Math.abs(hd) > 0.002) { histD[hj] += hd * a2; moving = true; } else histD[hj] = histT[hj]; } }
+      if (now - enter0 < 1400) moving = true;
+      if (moving || need) draw();
       if (dirty) { if (resizedAt < 2) { shadow.render(); resizedAt++; } r.render(sc, c3); dirty = false; }
       rafD = requestAnimationFrame(loopD);
     }
     return {
       draw: function () { if (dev) dev.edit = null; dirtyGrade = true; draw(); },
-      start: function () { resize2(); $('drNote').hidden = !!(editImg && editImg.naturalWidth); if (!state2.running) { state2.running = true; play(); rafD = requestAnimationFrame(loopD); } },
-      state: function () { return { split: state2.split, vals: vals.slice(), playing: state2.playing, hist: dev && dev.grad ? 1 : 0 }; },
+      start: function () { resize2(); enter0 = reduce ? -1e9 : performance.now(); $('drNote').hidden = !!(editImg && editImg.naturalWidth); if (!state2.running) { state2.running = true; play(); rafD = requestAnimationFrame(loopD); } },
+      state: function () { return { split: state2.split, vals: vals.slice(), disp: disp.slice(), knob: kr.slice(), playing: state2.playing, hist: dev && dev.grad ? 1 : 0 }; },
       toClient: function (x, y) { var v = new T.Vector3((x / SW - 0.5) * 16.4, (0.5 - y / SHh) * 9.225, 0); scr.localToWorld(v); v.project(c3); var b = cv.getBoundingClientRect(); return { x: b.left + (v.x + 1) / 2 * b.width, y: b.top + (1 - v.y) / 2 * b.height }; },
       knob: function (i) { return { x: PX + 22 + (PWd - 44) / 2 + vals[i] / ADJ[i][2] * (PWd - 44) / 2, y: rowY(i) + 24 }; }, track: function (i, f) { return { x: PX + 22 + (PWd - 44) * f, y: rowY(i) + 24 }; },
       setAdj: setAdj, setSplit: function (s) { state2.split = s; draw(); }, hist: function () { var c = sg.getImageData(PX + 22, 140, PWd - 44, 120).data, sum = 0; for (var i = 0; i < c.length; i += 4) sum += c[i] + c[i + 1] + c[i + 2]; return sum; }
