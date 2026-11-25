@@ -29,21 +29,12 @@ step and no third-party scripts, deployed by Vercel from `main`.
 │   ├── og-card.jpg            # 1200x630 social preview card
 │   ├── favicon.svg
 │   └── Vinit_Rami_CV.pdf      # served by the "Download CV" buttons
-├── photography/               # separate photography portfolio, see photography/README.md
 ├── .well-known/security.txt   # how to report a security issue
 ├── robots.txt, sitemap.xml
 ├── vercel.json                # security headers and caching
 ├── .nojekyll                  # serve files as-is if GitHub Pages ever builds it
 └── LICENSE
 ```
-
-## Photography
-
-`/photography/` is a separate photography portfolio with its own styles,
-scripts, fonts and images: a 3D camera to turn and shoot with, the photos on
-its screen, a PDF portfolio behind the lens and a darkroom that runs an edit.
-It shares nothing with the main page. Details are in
-[`photography/README.md`](photography/README.md).
 
 ## Security
 
