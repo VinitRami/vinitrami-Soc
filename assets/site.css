@@ -322,6 +322,8 @@ h2.sec { font-size: 36px; letter-spacing: -1px; }
   background: rgb(251 191 36 / .1); border: 1px solid rgb(251 191 36 / .28); }
 .story b { display: block; font-size: 15px; }
 .story small { display: block; color: var(--mut); font-size: 14px; line-height: 1.45; }
+.story small .hob-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; color: var(--accent); font-weight: 600; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+.story small .hob-link:hover { color: var(--accent-hover); }
 
 .arsenal { margin-top: 26px; background: var(--tile); border: 1px solid var(--line); border-radius: var(--r); padding: 22px 26px 26px; }
 .tabs { display: flex; gap: 6px; flex-wrap: wrap; }

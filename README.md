@@ -4,7 +4,9 @@
 
 Portfolio of Vinit Rami, cybersecurity analyst: VAPT, phishing detection, log
 triage and threat intelligence. It is a static bento-style page with no build
-step and no third-party scripts, deployed by Vercel from `main`.
+step and no third-party scripts, deployed by Vercel from `main`. The one
+script that is not ours is Vercel Web Analytics, served from the site's own
+domain (`/_vercel/insights/`), with no cookies.
 
 ## Projects featured on the site
 
@@ -30,7 +32,7 @@ step and no third-party scripts, deployed by Vercel from `main`.
 │   ├── favicon.svg
 │   └── Vinit_Rami_CV.pdf      # served by the "Download CV" buttons
 ├── .well-known/security.txt   # how to report a security issue
-├── robots.txt, sitemap.xml
+├── favicon.ico, robots.txt, sitemap.xml
 ├── vercel.json                # security headers and caching
 ├── .nojekyll                  # serve files as-is if GitHub Pages ever builds it
 └── LICENSE
